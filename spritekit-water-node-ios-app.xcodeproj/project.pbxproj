@@ -17,6 +17,7 @@
 		A9636621206645F1004D39BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A963661F206645F1004D39BF /* LaunchScreen.storyboard */; };
 		A963662C206645F1004D39BF /* spritekit_water_node_ios_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963662B206645F1004D39BF /* spritekit_water_node_ios_appTests.swift */; };
 		A9636637206645F1004D39BF /* spritekit_water_node_ios_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636636206645F1004D39BF /* spritekit_water_node_ios_appUITests.swift */; };
+		A963664520664613004D39BF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A963664420664613004D39BF /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		A9636632206645F1004D39BF /* spritekit-water-node-ios-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spritekit-water-node-ios-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9636636206645F1004D39BF /* spritekit_water_node_ios_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spritekit_water_node_ios_appUITests.swift; sourceTree = "<group>"; };
 		A9636638206645F1004D39BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A963664420664613004D39BF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		A9636604206645F1004D39BF = {
 			isa = PBXGroup;
 			children = (
+				A963664420664613004D39BF /* .gitignore */,
 				A963660F206645F1004D39BF /* spritekit-water-node-ios-app */,
 				A963662A206645F1004D39BF /* spritekit-water-node-ios-appTests */,
 				A9636635206645F1004D39BF /* spritekit-water-node-ios-appUITests */,
@@ -245,6 +248,7 @@
 				A9636613206645F1004D39BF /* GameScene.sks in Resources */,
 				A963661E206645F1004D39BF /* Assets.xcassets in Resources */,
 				A9636621206645F1004D39BF /* LaunchScreen.storyboard in Resources */,
+				A963664520664613004D39BF /* .gitignore in Resources */,
 				A9636615206645F1004D39BF /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
