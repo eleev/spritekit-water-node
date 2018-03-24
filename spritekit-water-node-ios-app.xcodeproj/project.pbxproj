@@ -1,0 +1,575 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A9636611206645F1004D39BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636610206645F1004D39BF /* AppDelegate.swift */; };
+		A9636613206645F1004D39BF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A9636612206645F1004D39BF /* GameScene.sks */; };
+		A9636615206645F1004D39BF /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A9636614206645F1004D39BF /* Actions.sks */; };
+		A9636617206645F1004D39BF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636616206645F1004D39BF /* GameScene.swift */; };
+		A9636619206645F1004D39BF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636618206645F1004D39BF /* GameViewController.swift */; };
+		A963661C206645F1004D39BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A963661A206645F1004D39BF /* Main.storyboard */; };
+		A963661E206645F1004D39BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A963661D206645F1004D39BF /* Assets.xcassets */; };
+		A9636621206645F1004D39BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A963661F206645F1004D39BF /* LaunchScreen.storyboard */; };
+		A963662C206645F1004D39BF /* spritekit_water_node_ios_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963662B206645F1004D39BF /* spritekit_water_node_ios_appTests.swift */; };
+		A9636637206645F1004D39BF /* spritekit_water_node_ios_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636636206645F1004D39BF /* spritekit_water_node_ios_appUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9636628206645F1004D39BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9636605206645F1004D39BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A963660C206645F1004D39BF;
+			remoteInfo = "spritekit-water-node-ios-app";
+		};
+		A9636633206645F1004D39BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9636605206645F1004D39BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A963660C206645F1004D39BF;
+			remoteInfo = "spritekit-water-node-ios-app";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A963660D206645F1004D39BF /* spritekit-water-node-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spritekit-water-node-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9636610206645F1004D39BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A9636612206645F1004D39BF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		A9636614206645F1004D39BF /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		A9636616206645F1004D39BF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		A9636618206645F1004D39BF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		A963661B206645F1004D39BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A963661D206645F1004D39BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A9636620206645F1004D39BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A9636622206645F1004D39BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9636627206645F1004D39BF /* spritekit-water-node-ios-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spritekit-water-node-ios-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A963662B206645F1004D39BF /* spritekit_water_node_ios_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spritekit_water_node_ios_appTests.swift; sourceTree = "<group>"; };
+		A963662D206645F1004D39BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9636632206645F1004D39BF /* spritekit-water-node-ios-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spritekit-water-node-ios-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9636636206645F1004D39BF /* spritekit_water_node_ios_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spritekit_water_node_ios_appUITests.swift; sourceTree = "<group>"; };
+		A9636638206645F1004D39BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A963660A206645F1004D39BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9636624206645F1004D39BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A963662F206645F1004D39BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9636604206645F1004D39BF = {
+			isa = PBXGroup;
+			children = (
+				A963660F206645F1004D39BF /* spritekit-water-node-ios-app */,
+				A963662A206645F1004D39BF /* spritekit-water-node-ios-appTests */,
+				A9636635206645F1004D39BF /* spritekit-water-node-ios-appUITests */,
+				A963660E206645F1004D39BF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A963660E206645F1004D39BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A963660D206645F1004D39BF /* spritekit-water-node-ios-app.app */,
+				A9636627206645F1004D39BF /* spritekit-water-node-ios-appTests.xctest */,
+				A9636632206645F1004D39BF /* spritekit-water-node-ios-appUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A963660F206645F1004D39BF /* spritekit-water-node-ios-app */ = {
+			isa = PBXGroup;
+			children = (
+				A9636610206645F1004D39BF /* AppDelegate.swift */,
+				A9636612206645F1004D39BF /* GameScene.sks */,
+				A9636614206645F1004D39BF /* Actions.sks */,
+				A9636616206645F1004D39BF /* GameScene.swift */,
+				A9636618206645F1004D39BF /* GameViewController.swift */,
+				A963661A206645F1004D39BF /* Main.storyboard */,
+				A963661D206645F1004D39BF /* Assets.xcassets */,
+				A963661F206645F1004D39BF /* LaunchScreen.storyboard */,
+				A9636622206645F1004D39BF /* Info.plist */,
+			);
+			path = "spritekit-water-node-ios-app";
+			sourceTree = "<group>";
+		};
+		A963662A206645F1004D39BF /* spritekit-water-node-ios-appTests */ = {
+			isa = PBXGroup;
+			children = (
+				A963662B206645F1004D39BF /* spritekit_water_node_ios_appTests.swift */,
+				A963662D206645F1004D39BF /* Info.plist */,
+			);
+			path = "spritekit-water-node-ios-appTests";
+			sourceTree = "<group>";
+		};
+		A9636635206645F1004D39BF /* spritekit-water-node-ios-appUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A9636636206645F1004D39BF /* spritekit_water_node_ios_appUITests.swift */,
+				A9636638206645F1004D39BF /* Info.plist */,
+			);
+			path = "spritekit-water-node-ios-appUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A963660C206645F1004D39BF /* spritekit-water-node-ios-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A963663B206645F1004D39BF /* Build configuration list for PBXNativeTarget "spritekit-water-node-ios-app" */;
+			buildPhases = (
+				A9636609206645F1004D39BF /* Sources */,
+				A963660A206645F1004D39BF /* Frameworks */,
+				A963660B206645F1004D39BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "spritekit-water-node-ios-app";
+			productName = "spritekit-water-node-ios-app";
+			productReference = A963660D206645F1004D39BF /* spritekit-water-node-ios-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9636626206645F1004D39BF /* spritekit-water-node-ios-appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A963663E206645F1004D39BF /* Build configuration list for PBXNativeTarget "spritekit-water-node-ios-appTests" */;
+			buildPhases = (
+				A9636623206645F1004D39BF /* Sources */,
+				A9636624206645F1004D39BF /* Frameworks */,
+				A9636625206645F1004D39BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9636629206645F1004D39BF /* PBXTargetDependency */,
+			);
+			name = "spritekit-water-node-ios-appTests";
+			productName = "spritekit-water-node-ios-appTests";
+			productReference = A9636627206645F1004D39BF /* spritekit-water-node-ios-appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A9636631206645F1004D39BF /* spritekit-water-node-ios-appUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9636641206645F1004D39BF /* Build configuration list for PBXNativeTarget "spritekit-water-node-ios-appUITests" */;
+			buildPhases = (
+				A963662E206645F1004D39BF /* Sources */,
+				A963662F206645F1004D39BF /* Frameworks */,
+				A9636630206645F1004D39BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9636634206645F1004D39BF /* PBXTargetDependency */,
+			);
+			name = "spritekit-water-node-ios-appUITests";
+			productName = "spritekit-water-node-ios-appUITests";
+			productReference = A9636632206645F1004D39BF /* spritekit-water-node-ios-appUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9636605206645F1004D39BF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Astemir Eleev";
+				TargetAttributes = {
+					A963660C206645F1004D39BF = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					A9636626206645F1004D39BF = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A963660C206645F1004D39BF;
+					};
+					A9636631206645F1004D39BF = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A963660C206645F1004D39BF;
+					};
+				};
+			};
+			buildConfigurationList = A9636608206645F1004D39BF /* Build configuration list for PBXProject "spritekit-water-node-ios-app" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9636604206645F1004D39BF;
+			productRefGroup = A963660E206645F1004D39BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A963660C206645F1004D39BF /* spritekit-water-node-ios-app */,
+				A9636626206645F1004D39BF /* spritekit-water-node-ios-appTests */,
+				A9636631206645F1004D39BF /* spritekit-water-node-ios-appUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A963660B206645F1004D39BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A963661C206645F1004D39BF /* Main.storyboard in Resources */,
+				A9636613206645F1004D39BF /* GameScene.sks in Resources */,
+				A963661E206645F1004D39BF /* Assets.xcassets in Resources */,
+				A9636621206645F1004D39BF /* LaunchScreen.storyboard in Resources */,
+				A9636615206645F1004D39BF /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9636625206645F1004D39BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9636630206645F1004D39BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9636609206645F1004D39BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9636617206645F1004D39BF /* GameScene.swift in Sources */,
+				A9636619206645F1004D39BF /* GameViewController.swift in Sources */,
+				A9636611206645F1004D39BF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9636623206645F1004D39BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A963662C206645F1004D39BF /* spritekit_water_node_ios_appTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A963662E206645F1004D39BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9636637206645F1004D39BF /* spritekit_water_node_ios_appUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9636629206645F1004D39BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A963660C206645F1004D39BF /* spritekit-water-node-ios-app */;
+			targetProxy = A9636628206645F1004D39BF /* PBXContainerItemProxy */;
+		};
+		A9636634206645F1004D39BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A963660C206645F1004D39BF /* spritekit-water-node-ios-app */;
+			targetProxy = A9636633206645F1004D39BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A963661A206645F1004D39BF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A963661B206645F1004D39BF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A963661F206645F1004D39BF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9636620206645F1004D39BF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9636639206645F1004D39BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A963663A206645F1004D39BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A963663C206645F1004D39BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T3K58FE38R;
+				INFOPLIST_FILE = "spritekit-water-node-ios-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "eleev.astemir.io.spritekit-water-node-ios-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A963663D206645F1004D39BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T3K58FE38R;
+				INFOPLIST_FILE = "spritekit-water-node-ios-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "eleev.astemir.io.spritekit-water-node-ios-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A963663F206645F1004D39BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T3K58FE38R;
+				INFOPLIST_FILE = "spritekit-water-node-ios-appTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "eleev.astemir.io.spritekit-water-node-ios-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/spritekit-water-node-ios-app.app/spritekit-water-node-ios-app";
+			};
+			name = Debug;
+		};
+		A9636640206645F1004D39BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T3K58FE38R;
+				INFOPLIST_FILE = "spritekit-water-node-ios-appTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "eleev.astemir.io.spritekit-water-node-ios-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/spritekit-water-node-ios-app.app/spritekit-water-node-ios-app";
+			};
+			name = Release;
+		};
+		A9636642206645F1004D39BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T3K58FE38R;
+				INFOPLIST_FILE = "spritekit-water-node-ios-appUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "eleev.astemir.io.spritekit-water-node-ios-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "spritekit-water-node-ios-app";
+			};
+			name = Debug;
+		};
+		A9636643206645F1004D39BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T3K58FE38R;
+				INFOPLIST_FILE = "spritekit-water-node-ios-appUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "eleev.astemir.io.spritekit-water-node-ios-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "spritekit-water-node-ios-app";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9636608206645F1004D39BF /* Build configuration list for PBXProject "spritekit-water-node-ios-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9636639206645F1004D39BF /* Debug */,
+				A963663A206645F1004D39BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A963663B206645F1004D39BF /* Build configuration list for PBXNativeTarget "spritekit-water-node-ios-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A963663C206645F1004D39BF /* Debug */,
+				A963663D206645F1004D39BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A963663E206645F1004D39BF /* Build configuration list for PBXNativeTarget "spritekit-water-node-ios-appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A963663F206645F1004D39BF /* Debug */,
+				A9636640206645F1004D39BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9636641206645F1004D39BF /* Build configuration list for PBXNativeTarget "spritekit-water-node-ios-appUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9636642206645F1004D39BF /* Debug */,
+				A9636643206645F1004D39BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9636605206645F1004D39BF /* Project object */;
+}
