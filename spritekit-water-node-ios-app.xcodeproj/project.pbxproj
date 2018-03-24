@@ -18,6 +18,12 @@
 		A963662C206645F1004D39BF /* spritekit_water_node_ios_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963662B206645F1004D39BF /* spritekit_water_node_ios_appTests.swift */; };
 		A9636637206645F1004D39BF /* spritekit_water_node_ios_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636636206645F1004D39BF /* spritekit_water_node_ios_appUITests.swift */; };
 		A963664520664613004D39BF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A963664420664613004D39BF /* .gitignore */; };
+		A9636648206646DE004D39BF /* WaterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636647206646DE004D39BF /* WaterNode.swift */; };
+		A963664A20664AEB004D39BF /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963664920664AEB004D39BF /* Renderable.swift */; };
+		A963664C20664AF3004D39BF /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963664B20664AF3004D39BF /* Updatable.swift */; };
+		A963664E20664AFF004D39BF /* Splashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963664D20664AFF004D39BF /* Splashable.swift */; };
+		A9636651206665D8004D39BF /* Droplet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636650206665D8004D39BF /* Droplet.swift */; };
+		A9636653206665F3004D39BF /* WaterJoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636652206665F3004D39BF /* WaterJoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +61,12 @@
 		A9636636206645F1004D39BF /* spritekit_water_node_ios_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spritekit_water_node_ios_appUITests.swift; sourceTree = "<group>"; };
 		A9636638206645F1004D39BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A963664420664613004D39BF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		A9636647206646DE004D39BF /* WaterNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterNode.swift; sourceTree = "<group>"; };
+		A963664920664AEB004D39BF /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
+		A963664B20664AF3004D39BF /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
+		A963664D20664AFF004D39BF /* Splashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splashable.swift; sourceTree = "<group>"; };
+		A9636650206665D8004D39BF /* Droplet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Droplet.swift; sourceTree = "<group>"; };
+		A9636652206665F3004D39BF /* WaterJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterJoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +118,7 @@
 		A963660F206645F1004D39BF /* spritekit-water-node-ios-app */ = {
 			isa = PBXGroup;
 			children = (
+				A9636646206646B2004D39BF /* Water Node */,
 				A9636610206645F1004D39BF /* AppDelegate.swift */,
 				A9636612206645F1004D39BF /* GameScene.sks */,
 				A9636614206645F1004D39BF /* Actions.sks */,
@@ -135,6 +148,27 @@
 				A9636638206645F1004D39BF /* Info.plist */,
 			);
 			path = "spritekit-water-node-ios-appUITests";
+			sourceTree = "<group>";
+		};
+		A9636646206646B2004D39BF /* Water Node */ = {
+			isa = PBXGroup;
+			children = (
+				A9636647206646DE004D39BF /* WaterNode.swift */,
+				A9636650206665D8004D39BF /* Droplet.swift */,
+				A9636652206665F3004D39BF /* WaterJoint.swift */,
+				A963664F20664B20004D39BF /* Protocols */,
+			);
+			path = "Water Node";
+			sourceTree = "<group>";
+		};
+		A963664F20664B20004D39BF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A963664920664AEB004D39BF /* Renderable.swift */,
+				A963664B20664AF3004D39BF /* Updatable.swift */,
+				A963664D20664AFF004D39BF /* Splashable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,9 +308,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A963664C20664AF3004D39BF /* Updatable.swift in Sources */,
 				A9636617206645F1004D39BF /* GameScene.swift in Sources */,
+				A9636651206665D8004D39BF /* Droplet.swift in Sources */,
 				A9636619206645F1004D39BF /* GameViewController.swift in Sources */,
+				A963664E20664AFF004D39BF /* Splashable.swift in Sources */,
 				A9636611206645F1004D39BF /* AppDelegate.swift in Sources */,
+				A9636653206665F3004D39BF /* WaterJoint.swift in Sources */,
+				A963664A20664AEB004D39BF /* Renderable.swift in Sources */,
+				A9636648206646DE004D39BF /* WaterNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
