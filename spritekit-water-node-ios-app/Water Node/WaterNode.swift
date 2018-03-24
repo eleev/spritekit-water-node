@@ -106,37 +106,67 @@ class WaterNode: SKNode, Splashable {
     // MARK: - Conformance to Splashable protocol
     
     func set(color: UIColor) {
-        
+        fatalError(#function + " has not been implemented yet")
     }
     
     func splash(at x: Float, force: CGFloat) {
-        
+        fatalError(#function + " has not been implemented yet")
     }
     
     func splash(at x: Float, force: CGFloat, width: Float) {
-        
+        fatalError(#function + " has not been implemented yet")
     }
    
     func reset() {
-        
+        fatalError(#function + " has not been implemented yet")
     }
     
     // MARK: - Conformance to Renderable protocol
     
     func render() {
+        path = path(from: joints)
+        shapeNode.path = path
+    }
+    
+    private func path(from joints: Array<WaterJoint>) -> CGPath {
+        let path = CGMutablePath()
+        var index = 0
+        let cgsurfaceHeight = CGFloat(self.surfaceHeight)
         
+        for joint in joints {
+            let point = CGPoint(x: joint.position.x, y: joint.position.y + cgsurfaceHeight)
+            
+            if index == 0 {
+                path.move(to: point)
+            } else {
+                path.addLine(to: point)
+            }
+            index += 1
+        }
+        
+        let halfWidth = CGFloat(self.width / 2)
+        // Bottom right
+        path.addLine(to: CGPoint(x: halfWidth, y: 0))
+        // Bottom left
+        path.addLine(to: CGPoint(x: -halfWidth, y: 0))
+        path.closeSubpath()
+        
+        return path
     }
     
     // MARK: - Conformance to Updatable protocol
     
     func update(_ dt: CFTimeInterval) {
-        
+        updateJoints(dt: dt)
+        updateDroplets(dt: dt)
     }
     
-    // MARK: - Private methods
+    private func updateDroplets(dt: CFTimeInterval) {
+        fatalError(#function + " has not been implemented yet")
+    }
     
-    private func path(from joints: Array<WaterJoint>) -> CGPath {
-        return CGMutablePath()
+    private func updateJoints(dt: CFTimeInterval) {
+        fatalError(#function + " has not been implemented yet")
     }
 
 }
