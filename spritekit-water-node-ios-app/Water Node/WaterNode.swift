@@ -106,21 +106,89 @@ class WaterNode: SKNode, Splashable {
     // MARK: - Conformance to Splashable protocol
     
     func set(color: UIColor) {
-        fatalError(#function + " has not been implemented yet")
+        effectNode.shader?.uniformNamed("u_color")?.vectorFloat4Value = color.toVector4()
     }
     
     func splash(at x: Float, force: CGFloat) {
-        fatalError(#function + " has not been implemented yet")
+        splash(at: x, force: force, width: 0)
     }
     
     func splash(at x: Float, force: CGFloat, width: Float) {
-        fatalError(#function + " has not been implemented yet")
+        var xLocation = CGFloat(x)
+        xLocation -= CGFloat(self.width / 2)
+        
+        let cgwidth = CGFloat(width)
+        
+        var shortestDistance = CGFloat.greatestFiniteMagnitude
+        var closestoJoint: WaterJoint!
+        
+        for joint in joints {
+            let distance = fabs(joint.position.x - xLocation)
+            
+            if distance < shortestDistance {
+                shortestDistance = distance
+                closestoJoint = joint
+            }
+        }
+        
+        closestoJoint.velocity = -force
+        
+        for joint in joints {
+            let distance = fabs(joint.position.x - closestoJoint.position.x)
+            
+            if distance < cgwidth {
+                joint.velocity = distance / cgwidth * -force
+            }
+        }
+        
+        let dropletsNum = Int(20 * force / 100 * CGFloat(dropletsDensity))
+        let cgdropletForce = CGFloat(dropletsForce)
+        
+        for _ in 0..<dropletsNum {
+            let maxVelY = 500 * force / 100 * cgdropletForce
+            let minVelY = 200 * force / 100 * cgdropletForce
+            let maxVelX = -350 * force / 100 * cgdropletForce
+            let minVelX = 350 * force / 100 * cgdropletForce
+            
+            let velX = minVelX + (maxVelX - minVelX) * CGFloat.random(min: 0, max: 1)
+            let velY = minVelY + (maxVelY - minVelY) * CGFloat.random(min: 0, max: 1)
+            
+            let position = CGPoint(x: xLocation, y: CGFloat(surfaceHeight))
+            let velocity = CGPoint(x: velX, y: velY)
+            
+            // Add droplet here
+            addDroplet(at: position, velocity: velocity)
+        }
+        
     }
    
     func reset() {
-        fatalError(#function + " has not been implemented yet")
+        tension = 1.8
+        damping = 2.4
+        spread = 9.0
+        dropletsForce = 1.0
+        dropletsDensity = 1.0
+        dropletSize = 3.0
     }
     
+    // MARK: - Variables
+    
+    func set(tension: CGFloat) {
+        self.tension = Float(tension)
+        
+        for joint in joints {
+            joint.tension = tension
+        }
+    }
+    
+    func set(damping: CGFloat) {
+        self.damping = Float(damping)
+        
+        for joint in joints {
+            joint.damping = damping
+        }
+    }
+
     // MARK: - Conformance to Renderable protocol
     
     func render() {
@@ -168,5 +236,41 @@ class WaterNode: SKNode, Splashable {
     private func updateJoints(dt: CFTimeInterval) {
         fatalError(#function + " has not been implemented yet")
     }
-
+    
+    // MARK: - Droplets
+    
+    func addDroplet(at position: CGPoint, velocity: CGPoint) {
+        var droplet: Droplet!
+        
+        if dropletsCache.count > 0 {
+            droplet = dropletsCache.last
+            dropletsCache.removeLast()
+        } else {
+            droplet = Droplet()
+        }
+        
+        droplet.velocity = velocity
+        droplet.position = position
+        droplet.zPosition = 1.0
+        droplet.blendMode = .alpha
+        droplet.color = .blue
+        
+        let cgdropletSize = CGFloat(dropletSize)
+        droplet.xScale = cgdropletSize
+        droplet.yScale = cgdropletSize
+        
+        effectNode.addChild(droplet)
+        droplets.append(droplet)
+    }
+    
+    
+    func remove(droplet: Droplet) {
+        droplet.removeFromParent()
+        
+        if let index = droplets.index(of: droplet) {
+            droplets.remove(at: index)
+        }
+        dropletsCache.append(droplet)
+    }
+    
 }
