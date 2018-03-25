@@ -24,6 +24,7 @@
 		A963664E20664AFF004D39BF /* Splashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963664D20664AFF004D39BF /* Splashable.swift */; };
 		A9636651206665D8004D39BF /* Droplet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636650206665D8004D39BF /* Droplet.swift */; };
 		A9636653206665F3004D39BF /* WaterJoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636652206665F3004D39BF /* WaterJoint.swift */; };
+		A9636656206787F0004D39BF /* NumTypes+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636655206787F0004D39BF /* NumTypes+Random.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		A963664D20664AFF004D39BF /* Splashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splashable.swift; sourceTree = "<group>"; };
 		A9636650206665D8004D39BF /* Droplet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Droplet.swift; sourceTree = "<group>"; };
 		A9636652206665F3004D39BF /* WaterJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterJoint.swift; sourceTree = "<group>"; };
+		A9636655206787F0004D39BF /* NumTypes+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumTypes+Random.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		A963660F206645F1004D39BF /* spritekit-water-node-ios-app */ = {
 			isa = PBXGroup;
 			children = (
+				A9636654206787D6004D39BF /* Extensions */,
 				A9636646206646B2004D39BF /* Water Node */,
 				A9636610206645F1004D39BF /* AppDelegate.swift */,
 				A9636612206645F1004D39BF /* GameScene.sks */,
@@ -169,6 +172,14 @@
 				A963664D20664AFF004D39BF /* Splashable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A9636654206787D6004D39BF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A9636655206787F0004D39BF /* NumTypes+Random.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A963664C20664AF3004D39BF /* Updatable.swift in Sources */,
+				A9636656206787F0004D39BF /* NumTypes+Random.swift in Sources */,
 				A9636617206645F1004D39BF /* GameScene.swift in Sources */,
 				A9636651206665D8004D39BF /* Droplet.swift in Sources */,
 				A9636619206645F1004D39BF /* GameViewController.swift in Sources */,
