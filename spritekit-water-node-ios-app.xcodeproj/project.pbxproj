@@ -25,6 +25,7 @@
 		A9636651206665D8004D39BF /* Droplet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636650206665D8004D39BF /* Droplet.swift */; };
 		A9636653206665F3004D39BF /* WaterJoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636652206665F3004D39BF /* WaterJoint.swift */; };
 		A9636656206787F0004D39BF /* NumTypes+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636655206787F0004D39BF /* NumTypes+Random.swift */; };
+		A963665920678B50004D39BF /* Droplets.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A963665820678B50004D39BF /* Droplets.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		A9636650206665D8004D39BF /* Droplet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Droplet.swift; sourceTree = "<group>"; };
 		A9636652206665F3004D39BF /* WaterJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterJoint.swift; sourceTree = "<group>"; };
 		A9636655206787F0004D39BF /* NumTypes+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumTypes+Random.swift"; sourceTree = "<group>"; };
+		A963665820678B50004D39BF /* Droplets.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Droplets.fsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		A963660F206645F1004D39BF /* spritekit-water-node-ios-app */ = {
 			isa = PBXGroup;
 			children = (
+				A963665720678B37004D39BF /* Shaders */,
 				A9636654206787D6004D39BF /* Extensions */,
 				A9636646206646B2004D39BF /* Water Node */,
 				A9636610206645F1004D39BF /* AppDelegate.swift */,
@@ -180,6 +183,14 @@
 				A9636655206787F0004D39BF /* NumTypes+Random.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A963665720678B37004D39BF /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				A963665820678B50004D39BF /* Droplets.fsh */,
+			);
+			path = Shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +302,7 @@
 			files = (
 				A963661C206645F1004D39BF /* Main.storyboard in Resources */,
 				A9636613206645F1004D39BF /* GameScene.sks in Resources */,
+				A963665920678B50004D39BF /* Droplets.fsh in Resources */,
 				A963661E206645F1004D39BF /* Assets.xcassets in Resources */,
 				A9636621206645F1004D39BF /* LaunchScreen.storyboard in Resources */,
 				A963664520664613004D39BF /* .gitignore in Resources */,
