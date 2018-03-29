@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A9636611206645F1004D39BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636610206645F1004D39BF /* AppDelegate.swift */; };
 		A9636613206645F1004D39BF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A9636612206645F1004D39BF /* GameScene.sks */; };
-		A9636615206645F1004D39BF /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A9636614206645F1004D39BF /* Actions.sks */; };
 		A9636617206645F1004D39BF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636616206645F1004D39BF /* GameScene.swift */; };
 		A9636619206645F1004D39BF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636618206645F1004D39BF /* GameViewController.swift */; };
 		A963661C206645F1004D39BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A963661A206645F1004D39BF /* Main.storyboard */; };
@@ -26,6 +25,9 @@
 		A9636653206665F3004D39BF /* WaterJoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636652206665F3004D39BF /* WaterJoint.swift */; };
 		A9636656206787F0004D39BF /* NumTypes+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636655206787F0004D39BF /* NumTypes+Random.swift */; };
 		A963665920678B50004D39BF /* Droplets.fsh in Resources */ = {isa = PBXBuildFile; fileRef = A963665820678B50004D39BF /* Droplets.fsh */; };
+		A973C9A1206BBB7F00EA5F4A /* Sky-Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A973C9A0206BBB7F00EA5F4A /* Sky-Actions.sks */; };
+		A973C9A3206BC01A00EA5F4A /* DropNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973C9A2206BC01A00EA5F4A /* DropNode.swift */; };
+		A973C9A8206BE64B00EA5F4A /* DynamicWaterNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A973C9A7206BE64B00EA5F4A /* DynamicWaterNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +51,6 @@
 		A963660D206645F1004D39BF /* spritekit-water-node-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spritekit-water-node-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9636610206645F1004D39BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9636612206645F1004D39BF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		A9636614206645F1004D39BF /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		A9636616206645F1004D39BF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		A9636618206645F1004D39BF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A963661B206645F1004D39BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +72,11 @@
 		A9636652206665F3004D39BF /* WaterJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterJoint.swift; sourceTree = "<group>"; };
 		A9636655206787F0004D39BF /* NumTypes+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumTypes+Random.swift"; sourceTree = "<group>"; };
 		A963665820678B50004D39BF /* Droplets.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Droplets.fsh; sourceTree = "<group>"; };
+		A973C9A0206BBB7F00EA5F4A /* Sky-Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Sky-Actions.sks"; sourceTree = "<group>"; };
+		A973C9A2206BC01A00EA5F4A /* DropNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropNode.swift; sourceTree = "<group>"; };
+		A973C9A5206BE64A00EA5F4A /* spritekit-water-node-ios-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "spritekit-water-node-ios-app-Bridging-Header.h"; sourceTree = "<group>"; };
+		A973C9A6206BE64B00EA5F4A /* DynamicWaterNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicWaterNode.h; sourceTree = "<group>"; };
+		A973C9A7206BE64B00EA5F4A /* DynamicWaterNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicWaterNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,13 +133,14 @@
 				A9636646206646B2004D39BF /* Water Node */,
 				A9636610206645F1004D39BF /* AppDelegate.swift */,
 				A9636612206645F1004D39BF /* GameScene.sks */,
-				A9636614206645F1004D39BF /* Actions.sks */,
+				A973C9A0206BBB7F00EA5F4A /* Sky-Actions.sks */,
 				A9636616206645F1004D39BF /* GameScene.swift */,
 				A9636618206645F1004D39BF /* GameViewController.swift */,
 				A963661A206645F1004D39BF /* Main.storyboard */,
 				A963661D206645F1004D39BF /* Assets.xcassets */,
 				A963661F206645F1004D39BF /* LaunchScreen.storyboard */,
 				A9636622206645F1004D39BF /* Info.plist */,
+				A973C9A2206BC01A00EA5F4A /* DropNode.swift */,
 			);
 			path = "spritekit-water-node-ios-app";
 			sourceTree = "<group>";
@@ -159,6 +166,7 @@
 		A9636646206646B2004D39BF /* Water Node */ = {
 			isa = PBXGroup;
 			children = (
+				A973C9A4206BE63C00EA5F4A /* Objc */,
 				A9636647206646DE004D39BF /* WaterNode.swift */,
 				A9636650206665D8004D39BF /* Droplet.swift */,
 				A9636652206665F3004D39BF /* WaterJoint.swift */,
@@ -191,6 +199,16 @@
 				A963665820678B50004D39BF /* Droplets.fsh */,
 			);
 			path = Shaders;
+			sourceTree = "<group>";
+		};
+		A973C9A4206BE63C00EA5F4A /* Objc */ = {
+			isa = PBXGroup;
+			children = (
+				A973C9A6206BE64B00EA5F4A /* DynamicWaterNode.h */,
+				A973C9A7206BE64B00EA5F4A /* DynamicWaterNode.m */,
+				A973C9A5206BE64A00EA5F4A /* spritekit-water-node-ios-app-Bridging-Header.h */,
+			);
+			path = Objc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +279,7 @@
 				TargetAttributes = {
 					A963660C206645F1004D39BF = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					A9636626206645F1004D39BF = {
@@ -300,13 +319,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A973C9A1206BBB7F00EA5F4A /* Sky-Actions.sks in Resources */,
 				A963661C206645F1004D39BF /* Main.storyboard in Resources */,
 				A9636613206645F1004D39BF /* GameScene.sks in Resources */,
 				A963665920678B50004D39BF /* Droplets.fsh in Resources */,
 				A963661E206645F1004D39BF /* Assets.xcassets in Resources */,
 				A9636621206645F1004D39BF /* LaunchScreen.storyboard in Resources */,
 				A963664520664613004D39BF /* .gitignore in Resources */,
-				A9636615206645F1004D39BF /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +351,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A963664C20664AF3004D39BF /* Updatable.swift in Sources */,
+				A973C9A3206BC01A00EA5F4A /* DropNode.swift in Sources */,
+				A973C9A8206BE64B00EA5F4A /* DynamicWaterNode.m in Sources */,
 				A9636656206787F0004D39BF /* NumTypes+Random.swift in Sources */,
 				A9636617206645F1004D39BF /* GameScene.swift in Sources */,
 				A9636651206665D8004D39BF /* Droplet.swift in Sources */,
@@ -506,12 +527,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3K58FE38R;
 				INFOPLIST_FILE = "spritekit-water-node-ios-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "eleev.astemir.io.spritekit-water-node-ios-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "spritekit-water-node-ios-app/Water Node/Objc/spritekit-water-node-ios-app-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -521,12 +545,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3K58FE38R;
 				INFOPLIST_FILE = "spritekit-water-node-ios-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "eleev.astemir.io.spritekit-water-node-ios-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "spritekit-water-node-ios-app/Water Node/Objc/spritekit-water-node-ios-app-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
