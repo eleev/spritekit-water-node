@@ -56,7 +56,6 @@ class WaterNode: SKNode, Splashable {
         self.effectNode.shader = SKShader(fileNamed: WaterNode.DROPLET_FRAGMENT_SHADER_NAME)
         self.effectNode.shader?.uniforms = [SKUniform.init(name: "u_color", vectorFloat4: fillColor.toVector4()) ]
         
-        
         // Shape node
         self.shapeNode = SKShapeNode()
         self.shapeNode.fillColor = .black
@@ -150,8 +149,8 @@ class WaterNode: SKNode, Splashable {
             let maxVelX = -350 * force / 100 * cgdropletForce
             let minVelX = 350 * force / 100 * cgdropletForce
             
-            let velX = minVelX + (maxVelX - minVelX) * CGFloat.random(min: 0, max: 1)
             let velY = minVelY + (maxVelY - minVelY) * CGFloat.random(min: 0, max: 1)
+            let velX = minVelX + (maxVelX - minVelX) * CGFloat.random(min: 0, max: 1)
             
             let position = CGPoint(x: xLocation, y: CGFloat(surfaceHeight))
             let velocity = CGPoint(x: velX, y: velY)
@@ -230,11 +229,67 @@ class WaterNode: SKNode, Splashable {
     }
     
     private func updateDroplets(dt: CFTimeInterval) {
-        fatalError(#function + " has not been implemented yet")
+        let gravity: CGFloat = -1200
+        let fdt = CGFloat(dt)
+        let fsurfaceHeight = CGFloat(surfaceHeight)
+        
+        var dropletsToRemove = [Droplet]()
+        
+        for droplet in droplets {
+            droplet.velocity = CGPoint(x: droplet.velocity.x, y: droplet.velocity.y + gravity * fdt)
+            droplet.position = CGPoint(x: droplet.position.x + droplet.velocity.x * fdt, y: droplet.position.y + droplet.velocity.y * fdt)
+            
+            if droplet.position.y + (droplet.texture?.size().height)! / 2 + 30 < fsurfaceHeight {
+                dropletsToRemove.append(droplet)
+            }
+        }
+        
+        for droplet in dropletsToRemove {
+            self.remove(droplet: droplet)
+        }
     }
     
     private func updateJoints(dt: CFTimeInterval) {
-        fatalError(#function + " has not been implemented yet")
+        let fdt = CGFloat(dt)
+        let fspread = CGFloat(spread)
+        
+        for joint in joints {
+            joint.update(dt)
+        }
+        
+        let fsurfaceHeight = CGFloat(surfaceHeight)
+        
+        var leftDeltas = [CGFloat](repeating: fsurfaceHeight, count: joints.count)
+        var rightDeltas = [CGFloat](repeating: fsurfaceHeight, count: joints.count)
+        
+        // Number of passes
+        for _ in 0..<1 {
+            for i in 0..<joints.count {
+                let currentJoint = joints[i]
+                
+                if i > 0 {
+                    let previousJoint = joints[i - 1]
+                    leftDeltas[i] = fspread * (currentJoint.position.y - previousJoint.position.y)
+                    previousJoint.velocity += leftDeltas[i] * fdt
+                }
+                if i < joints.count - 1 {
+                    let nextJoint = joints[i + 1]
+                    rightDeltas[i] = fspread * (currentJoint.position.y - nextJoint.position.y)
+                    nextJoint.velocity += rightDeltas[i] * fdt
+                }
+            }
+            
+            for i in 0..<joints.count {
+                if i > 0 {
+                    let previois = joints[i - 1]
+                    previois.set(y: previois.position.y + leftDeltas[i] * fdt)
+                }
+                if i < joints.count - 1 {
+                    let next = joints[i + 1]
+                    next.set(y: next.position.y + rightDeltas[i] * fdt)
+                }
+            }
+        }
     }
     
     // MARK: - Droplets
@@ -246,7 +301,7 @@ class WaterNode: SKNode, Splashable {
             droplet = dropletsCache.last
             dropletsCache.removeLast()
         } else {
-            droplet = Droplet()
+            droplet = Droplet(imageNamed: "Droplet")
         }
         
         droplet.velocity = velocity
@@ -254,6 +309,7 @@ class WaterNode: SKNode, Splashable {
         droplet.zPosition = 1.0
         droplet.blendMode = .alpha
         droplet.color = .blue
+        droplet.zPosition = 11 // Most higher value
         
         let cgdropletSize = CGFloat(dropletSize)
         droplet.xScale = cgdropletSize
