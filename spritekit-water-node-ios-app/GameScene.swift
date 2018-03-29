@@ -11,79 +11,105 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+    // MARK: - Properties
+
+    let surfaceHeight: CGFloat = 235
+    var splashWidth: CGFloat = 20.0
+    var splashForceMultiplier: CGFloat = 0.125
+    
+    let fixedTimeStep: TimeInterval = 1.0 / 500
+    
+    var waterNode: WaterNode!
+//    var waterNode: DynamicWaterNode!
+    let waterColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.5)
+    
+    private var clouds: [SKSpriteNode] = []
+    private var boxes: [DropNode] = []
+    
+    private var deltaTime: CFTimeInterval = 0.0
+    private var hasReferenceFrameTime: Bool = false
+    
+    // MARK: - Methods
     
     override func didMove(to view: SKView) {
+        super.didMove(to: view)
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
-        
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
+        waterNode = WaterNode(with: Float(self.size.width), numJoints: 100, surfaceHeight: Float(surfaceHeight), fillColor: waterColor)
+//        waterNode = DynamicWaterNode(width: Float(self.size.width), numJoints: 100, surfaceHeight: Float(surfaceHeight), fillColour: waterColor)
+        waterNode.position = CGPoint(x: self.size.width / 2, y: 0)
+        waterNode.zPosition = 8
+        self.addChild(waterNode)
     }
     
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
+    // MARK: - Touches
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+        for touch in touches {
+            let location = touch.location(in: self)
+            let box = DropNode(imageNamed: "Box")
+            box.position = location
+            box.zPosition = 15
+            self.addChild(box)
+            boxes.append(box)
         }
-        
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
+    // MARK: - Update
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        if !hasReferenceFrameTime {
+            deltaTime = currentTime
+            hasReferenceFrameTime = true
+            return
+        }
+        
+        let dt = currentTime - deltaTime
+        
+        var accumuilator: TimeInterval = 0
+        accumuilator += dt
+        
+        while accumuilator >=  fixedTimeStep {
+            fixedUpdate(for: fixedTimeStep)
+            accumuilator -= fixedTimeStep
+        }
+        fixedUpdate(for: accumuilator)
+        
+        lastUpdate(for: dt)
+        deltaTime = currentTime
     }
+    
+    func fixedUpdate(for dt: CFTimeInterval) {
+        waterNode.update(dt)
+        
+        var boxesToRemove = [DropNode]()
+        let gravity: Double = -1200
+        
+        for box in boxes {
+            box.velocity = CGPoint(x: box.velocity.x, y: box.velocity.y + CGFloat(gravity * dt))
+            box.position = CGPoint(x: box.position.x + box.velocity.x * CGFloat(dt), y: box.position.y + box.velocity.y * CGFloat(dt))
+            
+            if box.isAboveWater && box.position.y <= CGFloat(waterNode.surfaceHeight) {
+                box.isAboveWater = false
+                waterNode.splash(at: Float(box.position.x), force: -box.velocity.y * splashForceMultiplier, width: Float(splashWidth))
+//                waterNode.splashAt(x: Float(box.position.x), force: -box.velocity.y * splashForceMultiplier, width: Float(splashWidth))
+            }
+            
+            if box.position.y < -box.size.height / 2 {
+                boxesToRemove.append(box)
+            }
+        }
+        
+        for box in boxesToRemove {
+            guard let index = boxes.index(of: box) else {
+                continue
+            }
+            boxes.remove(at: index)
+        }
+        
+    }
+    
+    func lastUpdate(for dt: CFTimeInterval) {
+        waterNode.render()
+    }
+    
 }
