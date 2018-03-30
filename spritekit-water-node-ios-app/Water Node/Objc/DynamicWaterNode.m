@@ -45,14 +45,6 @@
 #pragma mark - ***** WaterJoint *****
 //**********************************************
 
-@interface WaterJoint : NSObject
-
-@property (nonatomic) CGPoint position;
-@property (nonatomic) CGFloat velocity;
-@property (nonatomic) CGFloat damping;
-@property (nonatomic) CGFloat tension;
-@end
-
 @implementation WaterJoint
 
 -(instancetype)init{
@@ -86,7 +78,6 @@
 //**********************************************
 
 @interface DynamicWaterNode ()
-@property (nonatomic, strong) NSArray<WaterJoint*> *joints;
 @property (nonatomic, strong) SKShapeNode *shapeNode;
 @property float width;
 
@@ -122,7 +113,7 @@
     self.effectNode.shouldRasterize = NO;
     self.effectNode.shouldEnableEffects = YES;
     self.effectNode.shader = [SKShader shaderWithFileNamed:@"Droplets.fsh"];
-    self.effectNode.shader.uniforms = @[[SKUniform uniformWithName:@"u_colour" floatVector4:[fillColour vector4Value]]];
+    self.effectNode.shader.uniforms = @[[SKUniform uniformWithName:@"u_color" floatVector4:[fillColour vector4Value]]];
     [self addChild:self.effectNode];
     
     // Shape Node
@@ -184,7 +175,7 @@
 }
 
 -(void)setColour:(UIColor*)colour{
-    [self.effectNode.shader uniformNamed:@"u_colour"].floatVector4Value = [colour vector4Value];
+    [self.effectNode.shader uniformNamed:@"u_color"].floatVector4Value = [colour vector4Value];
 }
 
 #pragma mark - Splash

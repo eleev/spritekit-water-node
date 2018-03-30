@@ -8,8 +8,19 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface DynamicWaterNode : SKNode
+@interface WaterJoint : NSObject
 
+@property (nonatomic) CGPoint position;
+@property (nonatomic) CGFloat velocity;
+@property (nonatomic) CGFloat damping;
+@property (nonatomic) CGFloat tension;
+
+@end
+
+
+@interface DynamicWaterNode : SKNode
+/** Describes intermediate joints that connect he water surface */
+@property (nonatomic, strong) NSArray<WaterJoint*> *joints;
 /** Height of the water's surface */
 @property float surfaceHeight;
 /** Tension the water, shoud probably be less than damping */
