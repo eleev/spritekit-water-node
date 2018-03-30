@@ -9,7 +9,12 @@
 import SpriteKit
 import GameplayKit
 
+
 class GameScene: SKScene {
+
+    // MARK: - Static properties
+    
+    static var viewportSize: CGSize = .zero
     
     // MARK: - Properties
 
@@ -21,6 +26,7 @@ class GameScene: SKScene {
     
 //    var waterNode: WaterNode!
     var waterNode: DynamicWaterNode!
+    
     let waterColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.5)
     
     private var clouds: [SKSpriteNode] = []
@@ -29,16 +35,22 @@ class GameScene: SKScene {
     private var deltaTime: CFTimeInterval = 0.0
     private var hasReferenceFrameTime: Bool = false
     
+    private var updatables: [Updatable] = []
+    
     // MARK: - Methods
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-//        waterNode = WaterNode(with: Float(self.size.width), numJoints: 100, surfaceHeight: Float(surfaceHeight), fillColor: waterColor)
-        waterNode = DynamicWaterNode(width: Float(self.size.width), numJoints: 100, surfaceHeight: Float(surfaceHeight), fillColour: waterColor)
+        GameScene.viewportSize = view.bounds.size
+        loadClouds()
+        
+        let joints = 100
+        
+//        waterNode = WaterNode(with: Float(self.size.width), numJoints: joints, surfaceHeight: Float(surfaceHeight), fillColor: waterColor)
+        waterNode = DynamicWaterNode(width: Float(self.size.width), numJoints: joints, surfaceHeight: Float(surfaceHeight), fillColour: waterColor)
         waterNode.position = CGPoint(x: self.size.width / 2, y: 0)
         waterNode.zPosition = 8
-        waterNode.setColour(waterColor)
         
         self.addChild(waterNode)
     }
@@ -78,6 +90,9 @@ class GameScene: SKScene {
         
         lastUpdate(for: dt)
         deltaTime = currentTime
+        
+        // Iterate the updatables
+        updatables.forEach{ $0.update(accumuilator) }
     }
     
     func fixedUpdate(for dt: CFTimeInterval) {
@@ -92,7 +107,7 @@ class GameScene: SKScene {
             
             if box.isAboveWater && box.position.y <= CGFloat(waterNode.surfaceHeight) {
                 box.isAboveWater = false
-//                waterNode.splash(at: Float(box.position.x), force: -box.velocity.y * splashForceMultiplier, width: Float(splashWidth))
+//                waterNode.splash(at: box.position.x, force: -box.velocity.y * splashForceMultiplier, width: Float(splashWidth))
                 waterNode.splashAt(x: Float(box.position.x), force: -box.velocity.y * splashForceMultiplier, width: Float(splashWidth))
             }
             
@@ -118,4 +133,58 @@ class GameScene: SKScene {
         waterNode.render()
     }
     
+}
+
+extension GameScene {
+    
+    func loadClouds() {
+        let spriteLoader = SerialSpriteUploader<CloudNode>(scene: self)
+        let cloudsSprites = spriteLoader.upload(for: "cloud", with: { key, index -> String in
+            return key + "-\(index)"
+        }, inRange: 1...3)
+        
+        updatables.append(contentsOf: cloudsSprites)
+    }
+    
+    fileprivate func debugWaterNodePrint() {
+        DispatchQueue.once(token: "debug-print") {
+            debugPrint(#function + " joints : ")
+            
+            waterNode.joints.forEach({ joint in
+                debugPrint(joint.position)
+            })
+        }
+    }
+    
+}
+
+struct SerialSpriteUploader<Node: SKNode> {
+    
+    // MARK :- Properties
+    
+    private var scene: SKScene
+    
+    // MARK: - Initializers
+    
+    init(scene: SKScene) {
+        self.scene = scene
+    }
+    
+    // MARK: - Methods
+    
+    func upload(for key: String, with pattern: (_ key: String, _ index: Int)->String, inRange indices: ClosedRange<Int>) -> [Node] {
+        
+        var foundNodes = [Node]()
+        
+        for index in indices.lowerBound...indices.upperBound {
+            let childName = pattern(key, index)
+            guard let node = scene.childNode(withName: childName) as? Node else {
+                debugPrint(#function + " could not find child with the following name: ", childName)
+                continue
+            }
+            foundNodes.append(node)
+        }
+        
+        return foundNodes
+    }
 }
