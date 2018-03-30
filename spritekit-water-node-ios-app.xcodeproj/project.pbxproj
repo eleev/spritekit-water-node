@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A90DAE0D206E7E86007F15D7 /* DispatchQueue+DispatchOnce.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DAE0C206E7E86007F15D7 /* DispatchQueue+DispatchOnce.swift */; };
+		A90DAE0F206E86F6007F15D7 /* CloudNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DAE0E206E86F6007F15D7 /* CloudNode.swift */; };
 		A9636611206645F1004D39BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636610206645F1004D39BF /* AppDelegate.swift */; };
 		A9636613206645F1004D39BF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A9636612206645F1004D39BF /* GameScene.sks */; };
 		A9636617206645F1004D39BF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636616206645F1004D39BF /* GameScene.swift */; };
@@ -48,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A90DAE0C206E7E86007F15D7 /* DispatchQueue+DispatchOnce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+DispatchOnce.swift"; sourceTree = "<group>"; };
+		A90DAE0E206E86F6007F15D7 /* CloudNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudNode.swift; sourceTree = "<group>"; };
 		A963660D206645F1004D39BF /* spritekit-water-node-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spritekit-water-node-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9636610206645F1004D39BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9636612206645F1004D39BF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -132,15 +136,16 @@
 				A9636654206787D6004D39BF /* Extensions */,
 				A9636646206646B2004D39BF /* Water Node */,
 				A9636610206645F1004D39BF /* AppDelegate.swift */,
-				A9636612206645F1004D39BF /* GameScene.sks */,
-				A973C9A0206BBB7F00EA5F4A /* Sky-Actions.sks */,
+				A90DAE0E206E86F6007F15D7 /* CloudNode.swift */,
+				A973C9A2206BC01A00EA5F4A /* DropNode.swift */,
 				A9636616206645F1004D39BF /* GameScene.swift */,
 				A9636618206645F1004D39BF /* GameViewController.swift */,
+				A9636612206645F1004D39BF /* GameScene.sks */,
+				A973C9A0206BBB7F00EA5F4A /* Sky-Actions.sks */,
 				A963661A206645F1004D39BF /* Main.storyboard */,
 				A963661D206645F1004D39BF /* Assets.xcassets */,
 				A963661F206645F1004D39BF /* LaunchScreen.storyboard */,
 				A9636622206645F1004D39BF /* Info.plist */,
-				A973C9A2206BC01A00EA5F4A /* DropNode.swift */,
 			);
 			path = "spritekit-water-node-ios-app";
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				A9636655206787F0004D39BF /* NumTypes+Random.swift */,
+				A90DAE0C206E7E86007F15D7 /* DispatchQueue+DispatchOnce.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A963664C20664AF3004D39BF /* Updatable.swift in Sources */,
+				A90DAE0F206E86F6007F15D7 /* CloudNode.swift in Sources */,
 				A973C9A3206BC01A00EA5F4A /* DropNode.swift in Sources */,
 				A973C9A8206BE64B00EA5F4A /* DynamicWaterNode.m in Sources */,
 				A9636656206787F0004D39BF /* NumTypes+Random.swift in Sources */,
@@ -361,6 +368,7 @@
 				A9636611206645F1004D39BF /* AppDelegate.swift in Sources */,
 				A9636653206665F3004D39BF /* WaterJoint.swift in Sources */,
 				A963664A20664AEB004D39BF /* Renderable.swift in Sources */,
+				A90DAE0D206E7E86007F15D7 /* DispatchQueue+DispatchOnce.swift in Sources */,
 				A9636648206646DE004D39BF /* WaterNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
