@@ -108,6 +108,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A90DAE10206E99D7007F15D7 /* Node Components */ = {
+			isa = PBXGroup;
+			children = (
+				A90DAE0E206E86F6007F15D7 /* CloudNode.swift */,
+				A973C9A2206BC01A00EA5F4A /* DropNode.swift */,
+			);
+			path = "Node Components";
+			sourceTree = "<group>";
+		};
+		A90DAE11206E99F0007F15D7 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A90DAE15206E9A3E007F15D7 /* Actions */,
+				A9636616206645F1004D39BF /* GameScene.swift */,
+				A9636612206645F1004D39BF /* GameScene.sks */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A90DAE12206E9A00007F15D7 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A9636618206645F1004D39BF /* GameViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A90DAE13206E9A0C007F15D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A963661A206645F1004D39BF /* Main.storyboard */,
+				A963661F206645F1004D39BF /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A90DAE15206E9A3E007F15D7 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				A973C9A0206BBB7F00EA5F4A /* Sky-Actions.sks */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
 		A9636604206645F1004D39BF = {
 			isa = PBXGroup;
 			children = (
@@ -132,20 +176,16 @@
 		A963660F206645F1004D39BF /* spritekit-water-node-ios-app */ = {
 			isa = PBXGroup;
 			children = (
+				A9636610206645F1004D39BF /* AppDelegate.swift */,
+				A963661D206645F1004D39BF /* Assets.xcassets */,
+				A9636622206645F1004D39BF /* Info.plist */,
+				A90DAE13206E9A0C007F15D7 /* View */,
+				A90DAE12206E9A00007F15D7 /* View Controllers */,
+				A90DAE11206E99F0007F15D7 /* Scenes */,
+				A90DAE10206E99D7007F15D7 /* Node Components */,
 				A963665720678B37004D39BF /* Shaders */,
 				A9636654206787D6004D39BF /* Extensions */,
 				A9636646206646B2004D39BF /* Water Node */,
-				A9636610206645F1004D39BF /* AppDelegate.swift */,
-				A90DAE0E206E86F6007F15D7 /* CloudNode.swift */,
-				A973C9A2206BC01A00EA5F4A /* DropNode.swift */,
-				A9636616206645F1004D39BF /* GameScene.swift */,
-				A9636618206645F1004D39BF /* GameViewController.swift */,
-				A9636612206645F1004D39BF /* GameScene.sks */,
-				A973C9A0206BBB7F00EA5F4A /* Sky-Actions.sks */,
-				A963661A206645F1004D39BF /* Main.storyboard */,
-				A963661D206645F1004D39BF /* Assets.xcassets */,
-				A963661F206645F1004D39BF /* LaunchScreen.storyboard */,
-				A9636622206645F1004D39BF /* Info.plist */,
 			);
 			path = "spritekit-water-node-ios-app";
 			sourceTree = "<group>";
