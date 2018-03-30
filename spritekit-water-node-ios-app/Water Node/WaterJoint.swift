@@ -13,21 +13,10 @@ class WaterJoint: NSObject, Updatable {
     
     // MARK: - Properties
     
-    var position: CGPoint
-    var velocity: CGFloat
-    var damping: CGFloat
-    var tension: CGFloat
-    
-    // MARK: - Initializers
-    
-    override init() {
-        position = .zero
-        velocity = 0
-        damping = 0
-        tension = 0
-        
-        super.init()
-    }
+    var position: CGPoint = .zero
+    var velocity: CGFloat = 0
+    var damping: CGFloat = 0
+    var tension: CGFloat = 0
     
     // MARK: - Methods
     
