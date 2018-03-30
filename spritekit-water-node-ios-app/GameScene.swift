@@ -19,8 +19,8 @@ class GameScene: SKScene {
     
     let fixedTimeStep: TimeInterval = 1.0 / 500
     
-    var waterNode: WaterNode!
-//    var waterNode: DynamicWaterNode!
+//    var waterNode: WaterNode!
+    var waterNode: DynamicWaterNode!
     let waterColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.5)
     
     private var clouds: [SKSpriteNode] = []
@@ -34,10 +34,12 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        waterNode = WaterNode(with: Float(self.size.width), numJoints: 100, surfaceHeight: Float(surfaceHeight), fillColor: waterColor)
-//        waterNode = DynamicWaterNode(width: Float(self.size.width), numJoints: 100, surfaceHeight: Float(surfaceHeight), fillColour: waterColor)
+//        waterNode = WaterNode(with: Float(self.size.width), numJoints: 100, surfaceHeight: Float(surfaceHeight), fillColor: waterColor)
+        waterNode = DynamicWaterNode(width: Float(self.size.width), numJoints: 100, surfaceHeight: Float(surfaceHeight), fillColour: waterColor)
         waterNode.position = CGPoint(x: self.size.width / 2, y: 0)
         waterNode.zPosition = 8
+        waterNode.setColour(waterColor)
+        
         self.addChild(waterNode)
     }
     
@@ -90,8 +92,8 @@ class GameScene: SKScene {
             
             if box.isAboveWater && box.position.y <= CGFloat(waterNode.surfaceHeight) {
                 box.isAboveWater = false
-                waterNode.splash(at: Float(box.position.x), force: -box.velocity.y * splashForceMultiplier, width: Float(splashWidth))
-//                waterNode.splashAt(x: Float(box.position.x), force: -box.velocity.y * splashForceMultiplier, width: Float(splashWidth))
+//                waterNode.splash(at: Float(box.position.x), force: -box.velocity.y * splashForceMultiplier, width: Float(splashWidth))
+                waterNode.splashAt(x: Float(box.position.x), force: -box.velocity.y * splashForceMultiplier, width: Float(splashWidth))
             }
             
             if box.position.y < -box.size.height / 2 {
@@ -101,11 +103,15 @@ class GameScene: SKScene {
         
         for box in boxesToRemove {
             guard let index = boxes.index(of: box) else {
+                
                 continue
             }
+            debugPrint(#function + " remove box that is ourside of the viewport : ", boxes[index])
+            let box = boxes[index]
+            box.removeAllChildren()
+            box.removeFromParent()
             boxes.remove(at: index)
         }
-        
     }
     
     func lastUpdate(for dt: CFTimeInterval) {
