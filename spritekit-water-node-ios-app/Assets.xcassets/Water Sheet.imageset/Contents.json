@@ -1,0 +1,50 @@
+{
+  "images" : [
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 17,
+          "height" : 7
+        },
+        "cap-insets" : {
+          "bottom" : 218,
+          "top" : 223,
+          "right" : 560,
+          "left" : 575
+        }
+      },
+      "idiom" : "universal",
+      "filename" : "fishTilesheet.png",
+      "scale" : "1x"
+    },
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 17,
+          "height" : 7
+        },
+        "cap-insets" : {
+          "bottom" : 442,
+          "top" : 447,
+          "right" : 1136,
+          "left" : 1151
+        }
+      },
+      "idiom" : "universal",
+      "filename" : "fishTilesheet@2.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
