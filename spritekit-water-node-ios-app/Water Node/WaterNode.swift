@@ -13,13 +13,13 @@ class WaterNode: SKNode, Splashable {
     
     // MARK: - Prperties
     
-    var surfaceHeight: Float = 0
-    var tension: Float = 0
-    var damping: Float = 0
-    var spread: Float = 0
-    var dropletsForce: Float = 0
-    var dropletsDensity: Float = 0
-    var dropletSize: Float = 0
+    var surfaceHeight: Float
+    var tension: Float = 1.8
+    var damping: Float = 2.4
+    var spread: Float = 9.0
+    var dropletsForce: Float = 1.0
+    var dropletsDensity: Float = 1.0
+    var dropletSize: Float = 3
     
     // MARK: - Private properties
     
@@ -28,7 +28,7 @@ class WaterNode: SKNode, Splashable {
     private var dropletsCache: Array<Droplet>
     
     private(set) var width: Float
-    private(set) var path: CGPath
+    private(set) var path: CGPath?
     
     private(set) var shapeNode: SKShapeNode
     private(set) var effectNode: SKEffectNode
@@ -54,7 +54,7 @@ class WaterNode: SKNode, Splashable {
         self.effectNode.shouldRasterize = false
         self.effectNode.shouldEnableEffects = true
         self.effectNode.shader = SKShader(fileNamed: WaterNode.DROPLET_FRAGMENT_SHADER_NAME)
-        self.effectNode.shader?.uniforms = [SKUniform.init(name: "u_color", vectorFloat4: fillColor.toVector4()) ]
+        self.effectNode.shader?.uniforms = [ SKUniform.init(name: "u_color", vectorFloat4: fillColor.toVector4()) ]
         
         // Shape node
         self.shapeNode = SKShapeNode()
@@ -62,6 +62,7 @@ class WaterNode: SKNode, Splashable {
         self.shapeNode.strokeColor = .green
         self.shapeNode.glowWidth = 2.0
         self.shapeNode.zPosition = 2.0
+        self.shapeNode.isAntialiased = true
         self.effectNode.addChild(self.shapeNode)
         
         // Create joints
@@ -82,8 +83,6 @@ class WaterNode: SKNode, Splashable {
             joints.append(joint)
         }
         self.joints = Array<WaterJoint>(joints)
-        
-        self.path = CGMutablePath()
         
         super.init()
         
@@ -108,17 +107,17 @@ class WaterNode: SKNode, Splashable {
         effectNode.shader?.uniformNamed("u_color")?.vectorFloat4Value = color.toVector4()
     }
     
-    func splash(at x: Float, force: CGFloat) {
+    func splash(at x: CGFloat, force: CGFloat) {
         splash(at: x, force: force, width: 0)
     }
     
-    func splash(at x: Float, force: CGFloat, width: Float) {
+    func splash(at x: CGFloat, force: CGFloat, width: Float) {
         var xLocation = CGFloat(x)
         xLocation -= CGFloat(self.width / 2)
         
         let cgwidth = CGFloat(width)
         
-        var shortestDistance = CGFloat.greatestFiniteMagnitude
+        var shortestDistance: CGFloat = CGFloat.greatestFiniteMagnitude
         var closestoJoint: WaterJoint!
         
         for joint in joints {
@@ -134,31 +133,30 @@ class WaterNode: SKNode, Splashable {
         
         for joint in joints {
             let distance = fabs(joint.position.x - closestoJoint.position.x)
-            
+
             if distance < cgwidth {
                 joint.velocity = distance / cgwidth * -force
             }
         }
-        
+
         let dropletsNum = Int(20 * force / 100 * CGFloat(dropletsDensity))
         let cgdropletForce = CGFloat(dropletsForce)
-        
+
         for _ in 0..<dropletsNum {
             let maxVelY = 500 * force / 100 * cgdropletForce
             let minVelY = 200 * force / 100 * cgdropletForce
             let maxVelX = -350 * force / 100 * cgdropletForce
             let minVelX = 350 * force / 100 * cgdropletForce
-            
+
             let velY = minVelY + (maxVelY - minVelY) * CGFloat.random(min: 0, max: 1)
             let velX = minVelX + (maxVelX - minVelX) * CGFloat.random(min: 0, max: 1)
-            
+
             let position = CGPoint(x: xLocation, y: CGFloat(surfaceHeight))
             let velocity = CGPoint(x: velX, y: velY)
-            
+
             // Add droplet here
             addDroplet(at: position, velocity: velocity)
         }
-        
     }
    
     func reset() {
@@ -249,6 +247,7 @@ class WaterNode: SKNode, Splashable {
         }
     }
     
+    
     private func updateJoints(dt: CFTimeInterval) {
         let fdt = CGFloat(dt)
         let fspread = CGFloat(spread)
@@ -256,29 +255,28 @@ class WaterNode: SKNode, Splashable {
         for joint in joints {
             joint.update(dt)
         }
-        
-        let fsurfaceHeight = CGFloat(surfaceHeight)
-        
-        var leftDeltas = [CGFloat](repeating: fsurfaceHeight, count: joints.count)
-        var rightDeltas = [CGFloat](repeating: fsurfaceHeight, count: joints.count)
+                
+        var leftDeltas = [CGFloat](repeating: 0.0, count: joints.count)
+        var rightDeltas = [CGFloat](repeating: 0.0, count: joints.count)
         
         // Number of passes
         for _ in 0..<1 {
             for i in 0..<joints.count {
-                let currentJoint = joints[i]
-                
+                let current = joints[i]
+                let currentYPosition = current.position.y
+
                 if i > 0 {
                     let previousJoint = joints[i - 1]
-                    leftDeltas[i] = fspread * (currentJoint.position.y - previousJoint.position.y)
+                    leftDeltas[i] = fspread * (currentYPosition - previousJoint.position.y)
                     previousJoint.velocity += leftDeltas[i] * fdt
                 }
                 if i < joints.count - 1 {
                     let nextJoint = joints[i + 1]
-                    rightDeltas[i] = fspread * (currentJoint.position.y - nextJoint.position.y)
+                    rightDeltas[i] = fspread * (currentYPosition - nextJoint.position.y)
                     nextJoint.velocity += rightDeltas[i] * fdt
                 }
             }
-            
+
             for i in 0..<joints.count {
                 if i > 0 {
                     let previois = joints[i - 1]
@@ -309,6 +307,7 @@ class WaterNode: SKNode, Splashable {
         droplet.zPosition = 1.0
         droplet.blendMode = .alpha
         droplet.color = .blue
+        droplet.colorBlendFactor = 1.0
         droplet.zPosition = 11 // Most higher value
         
         let cgdropletSize = CGFloat(dropletSize)
