@@ -35,8 +35,8 @@ protocol Splashable: Updatable, Renderable {
     
     // MARK: - Splash
     
-    func splash(at x: Float, force: CGFloat)
-    func splash(at x: Float, force: CGFloat, width: Float)
+    func splash(at x: CGFloat, force: CGFloat)
+    func splash(at x: CGFloat, force: CGFloat, width: Float)
     
     // MARK: - Reset
     
