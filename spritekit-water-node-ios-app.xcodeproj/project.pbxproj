@@ -31,6 +31,7 @@
 		A973C9A3206BC01A00EA5F4A /* DropNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973C9A2206BC01A00EA5F4A /* DropNode.swift */; };
 		A973C9A8206BE64B00EA5F4A /* DynamicWaterNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A973C9A7206BE64B00EA5F4A /* DynamicWaterNode.m */; };
 		A9AACE07206F77FB002F5AAF /* FlyingBird.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AACE06206F77FB002F5AAF /* FlyingBird.swift */; };
+		A9DDB923206FEA5300D513FE /* SerialSpriteUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DDB922206FEA5300D513FE /* SerialSpriteUploader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		A973C9A6206BE64B00EA5F4A /* DynamicWaterNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicWaterNode.h; sourceTree = "<group>"; };
 		A973C9A7206BE64B00EA5F4A /* DynamicWaterNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicWaterNode.m; sourceTree = "<group>"; };
 		A9AACE06206F77FB002F5AAF /* FlyingBird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyingBird.swift; sourceTree = "<group>"; };
+		A9DDB922206FEA5300D513FE /* SerialSpriteUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialSpriteUploader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 		A963660F206645F1004D39BF /* spritekit-water-node-ios-app */ = {
 			isa = PBXGroup;
 			children = (
+				A9DDB921206FEA3A00D513FE /* Utils */,
 				A9636610206645F1004D39BF /* AppDelegate.swift */,
 				A963661D206645F1004D39BF /* Assets.xcassets */,
 				A9636622206645F1004D39BF /* Info.plist */,
@@ -258,6 +261,14 @@
 				A973C9A5206BE64A00EA5F4A /* spritekit-water-node-ios-app-Bridging-Header.h */,
 			);
 			path = Objc;
+			sourceTree = "<group>";
+		};
+		A9DDB921206FEA3A00D513FE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A9DDB922206FEA5300D513FE /* SerialSpriteUploader.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +418,7 @@
 				A9636656206787F0004D39BF /* NumTypes+Random.swift in Sources */,
 				A9636617206645F1004D39BF /* GameScene.swift in Sources */,
 				A9636651206665D8004D39BF /* Droplet.swift in Sources */,
+				A9DDB923206FEA5300D513FE /* SerialSpriteUploader.swift in Sources */,
 				A9636619206645F1004D39BF /* GameViewController.swift in Sources */,
 				A963664E20664AFF004D39BF /* Splashable.swift in Sources */,
 				A9636611206645F1004D39BF /* AppDelegate.swift in Sources */,
