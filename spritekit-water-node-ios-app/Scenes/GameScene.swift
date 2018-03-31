@@ -9,7 +9,6 @@
 import SpriteKit
 import GameplayKit
 
-
 class GameScene: SKScene {
 
     // MARK: - Static properties
@@ -21,23 +20,23 @@ class GameScene: SKScene {
 
     var splashWidth: CGFloat = 20.0
     var splashForceMultiplier: CGFloat = 0.125
-    
     let fixedTimeStep: TimeInterval = 1.0 / 500
-    
-//    var waterNode: WaterNode!
-    var waterNode: DynamicWaterNode!
-    
-    let waterColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.5)
-    
-    private var clouds: [SKSpriteNode] = []
-    private var boxes: [DropNode] = []
+
+    // MARK: - Private properties
     
     private var deltaTime: CFTimeInterval = 0.0
     private var hasReferenceFrameTime: Bool = false
     
+//    private var waterNode: WaterNode!
+    private var waterNode: DynamicWaterNode!
+    
+    private let waterColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.5)
+    
+    private var clouds: [SKSpriteNode] = []
+    private var boxes: [DropNode] = []
+    
     private var updatables: [Updatable] = []
     fileprivate var spriteLoader: SerialSpriteUploader<CloudNode>?
-
     
     // MARK: - Methods
     
@@ -46,13 +45,15 @@ class GameScene: SKScene {
         
         GameScene.viewportSize = view.bounds.size
         spriteLoader = SerialSpriteUploader(scene: self)
+        
         loadClouds()
-        
         prepareFlyingBird()
+        prepareWaterNode()
+    }
+    
+    private func prepareWaterNode(with joints: Int = 100) {
+        //        waterNode = WaterNode(with: Float(self.size.width), numJoints: joints, surfaceHeight: Float(surfaceHeight), fillColor: waterColor)
         
-        let joints = 100
-        
-//        waterNode = WaterNode(with: Float(self.size.width), numJoints: joints, surfaceHeight: Float(surfaceHeight), fillColor: waterColor)
         waterNode = DynamicWaterNode(width: Float(self.size.width), numJoints: joints, surfaceHeight: Float(GameScene.surfaceHeight), fillColour: waterColor)
         waterNode.position = CGPoint(x: self.size.width / 2, y: 0)
         waterNode.zPosition = 20
@@ -65,12 +66,16 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
-            let box = DropNode(imageNamed: "Box")
-            box.position = location
-            box.zPosition = 15
-            self.addChild(box)
-            boxes.append(box)
+            appendDroppable(for: location)
         }
+    }
+    
+    private func appendDroppable(for location: CGPoint) {
+        let box = DropNode(imageNamed: "Box")
+        box.position = location
+        box.zPosition = 15
+        self.addChild(box)
+        boxes.append(box)
     }
     
     // MARK: - Update
@@ -109,7 +114,7 @@ class GameScene: SKScene {
         for box in boxes {
             box.velocity = CGPoint(x: box.velocity.x, y: box.velocity.y + CGFloat(gravity * dt))
             box.position = CGPoint(x: box.position.x + box.velocity.x * CGFloat(dt), y: box.position.y + box.velocity.y * CGFloat(dt))
-                        
+            
             if box.isAboveWater && box.position.y <= CGFloat(waterNode.surfaceHeight) {
                 box.isAboveWater = false
 //                waterNode.splash(at: box.position.x, force: -box.velocity.y * splashForceMultiplier, width: Float(splashWidth))
