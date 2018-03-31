@@ -15,10 +15,10 @@ class GameScene: SKScene {
     // MARK: - Static properties
     
     static var viewportSize: CGSize = .zero
+    static let surfaceHeight: CGFloat = 235
     
     // MARK: - Properties
 
-    let surfaceHeight: CGFloat = 235
     var splashWidth: CGFloat = 20.0
     var splashForceMultiplier: CGFloat = 0.125
     
@@ -36,6 +36,8 @@ class GameScene: SKScene {
     private var hasReferenceFrameTime: Bool = false
     
     private var updatables: [Updatable] = []
+    fileprivate var spriteLoader: SerialSpriteUploader<CloudNode>?
+
     
     // MARK: - Methods
     
@@ -43,14 +45,17 @@ class GameScene: SKScene {
         super.didMove(to: view)
         
         GameScene.viewportSize = view.bounds.size
+        spriteLoader = SerialSpriteUploader(scene: self)
         loadClouds()
+        
+        prepareFlyingBird()
         
         let joints = 100
         
 //        waterNode = WaterNode(with: Float(self.size.width), numJoints: joints, surfaceHeight: Float(surfaceHeight), fillColor: waterColor)
-        waterNode = DynamicWaterNode(width: Float(self.size.width), numJoints: joints, surfaceHeight: Float(surfaceHeight), fillColour: waterColor)
+        waterNode = DynamicWaterNode(width: Float(self.size.width), numJoints: joints, surfaceHeight: Float(GameScene.surfaceHeight), fillColour: waterColor)
         waterNode.position = CGPoint(x: self.size.width / 2, y: 0)
-        waterNode.zPosition = 8
+        waterNode.zPosition = 20
         
         self.addChild(waterNode)
     }
@@ -118,7 +123,6 @@ class GameScene: SKScene {
         
         for box in boxesToRemove {
             guard let index = boxes.index(of: box) else {
-                
                 continue
             }
             debugPrint(#function + " remove box that is ourside of the viewport : ", boxes[index])
@@ -138,12 +142,44 @@ class GameScene: SKScene {
 extension GameScene {
     
     func loadClouds() {
-        let spriteLoader = SerialSpriteUploader<CloudNode>(scene: self)
-        let cloudsSprites = spriteLoader.upload(for: "cloud", with: { key, index -> String in
+        guard let cloudsSprites = spriteLoader?.upload(for: "cloud", with: { key, index -> String in
             return key + "-\(index)"
-        }, inRange: 1...3)
+        }, inRange: 1...3) else {
+            return
+        }
         
         updatables.append(contentsOf: cloudsSprites)
+    }
+ 
+    func prepareFlyingBird() {
+        var textures: [SKTexture]?
+        
+        // 1.  upload the texture atlas
+        do {
+            textures = try spriteLoader?.upload(textureAtlas: "Bird Left", beginIndex: 1, pattern: { (name, index) -> String in
+                return "player\(index)"
+            })
+        } catch {
+            debugPrint(#function + " thrown the errro while uploading texture atlas : ", error)
+        }
+        
+        // 2. unwrap the texture array
+        guard let unwrappedTextures = textures else {
+            debugPrint(#function + " could not unwrap the textures since it is nil")
+            return
+        }
+        
+        // 3. fetch the FlyingBird instance from the scene graph
+        guard let bird = self.childNode(withName: "Bird") as? FlyingBird else {
+            debugPrint(#function + " could not upload Bird node - the animated Bird will not be drawn and animated (!)")
+            return
+        }
+
+        // 4. animated the flying bird
+        bird.flyTextures = unwrappedTextures
+        bird.animate(with: 0.1)
+        
+        updatables.append(bird)
     }
     
     fileprivate func debugWaterNodePrint() {
@@ -155,7 +191,6 @@ extension GameScene {
             })
         }
     }
-    
 }
 
 struct SerialSpriteUploader<Node: SKNode> {
@@ -186,5 +221,23 @@ struct SerialSpriteUploader<Node: SKNode> {
         }
         
         return foundNodes
+    }
+    
+    func upload(textureAtlas named: String, beginIndex: Int = 1, pattern: (_ name: String, _ index: Int) -> String) throws -> [SKTexture] {
+        let atlas = SKTextureAtlas(named: named)
+        var frames = [SKTexture]()
+        
+        let count = atlas.textureNames.count
+        if beginIndex > count {
+            throw NSError(domain: "Begin index is grather than the number of textures in a texture atlas named: \(named)", code: 1, userInfo: nil)
+        }
+        
+        for index in beginIndex...count {
+            let namePattern = pattern(named, index)
+            let texture = atlas.textureNamed(namePattern)
+            frames.append(texture)
+        }
+        
+        return frames
     }
 }
