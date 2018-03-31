@@ -78,7 +78,6 @@
 //**********************************************
 
 @interface DynamicWaterNode ()
-@property (nonatomic, strong) SKShapeNode *shapeNode;
 @property float width;
 
 @property CGPathRef path;
@@ -86,7 +85,6 @@
 @property (nonatomic, strong) NSMutableArray *droplets;
 @property (nonatomic, strong) NSMutableArray *dropletsCache;
 
-@property (nonatomic, strong) SKEffectNode *effectNode;
 
 @end
 
@@ -184,7 +182,7 @@
     [self splashAtX:xLocation force:force width:0];
 }
 
--(void)splashAtX:(float)xLocation force:(CGFloat)force width:(float)width{
+-(void)splashAtX:(float)xLocation force:(CGFloat)force width:(float)width {
 
     xLocation -= self.width/2;
     
@@ -224,6 +222,32 @@
         
         [self addDropletAt:CGPointMake(xLocation, self.surfaceHeight)
                   velocity:CGPointMake(velX, velY)];
+    }
+    
+}
+
+-(void)disturbance: (float)xLocation force:(CGFloat)force width:(float)width {
+    xLocation -= self.width/2;
+    
+    CGFloat shortestDistance = CGFLOAT_MAX;
+    WaterJoint *closestJoint;
+    
+    for (WaterJoint *joint in self.joints) {
+        
+        CGFloat distance = fabs(joint.position.x - xLocation);
+        if (distance < shortestDistance) {
+            shortestDistance = distance;
+            closestJoint = joint;
+        }
+    }
+    
+    closestJoint.velocity = -force;
+    
+    for (WaterJoint *joint in self.joints) {
+        CGFloat distance = fabs(joint.position.x - closestJoint.position.x);
+        if (distance < width) {
+            joint.velocity = distance / width * -force;
+        }
     }
     
 }

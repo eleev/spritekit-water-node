@@ -19,6 +19,11 @@
 
 
 @interface DynamicWaterNode : SKNode
+
+/** Describes the overall look and corresponding splash effects realed to the whole node */
+@property (nonatomic, strong) SKEffectNode *effectNode;
+/** Describes the shape of water that is formed by a set of paths and interconnected with each other */
+@property (nonatomic, strong) SKShapeNode *shapeNode;
 /** Describes intermediate joints that connect he water surface */
 @property (nonatomic, strong) NSArray<WaterJoint*> *joints;
 /** Height of the water's surface */
@@ -71,6 +76,8 @@
  Make a splash
  */
 -(void)splashAtX:(float)xLocation force:(CGFloat)force width:(float)width;
+
+-(void)disturbance: (float)xLocation force:(CGFloat)force width:(float)width;
 
 #pragma mark - Render
 /**
