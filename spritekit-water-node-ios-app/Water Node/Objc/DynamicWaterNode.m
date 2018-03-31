@@ -111,8 +111,9 @@
     self.effectNode.shouldRasterize = NO;
     self.effectNode.shouldEnableEffects = YES;
     self.effectNode.shader = [SKShader shaderWithFileNamed:@"Droplets.fsh"];
-    self.effectNode.shader.uniforms = @[[SKUniform uniformWithName:@"u_color" floatVector4:[fillColour vector4Value]]];
-    [self addChild:self.effectNode];
+    // Shader is attached outside of the initializer
+//    self.effectNode.shader.uniforms = @[[SKUniform uniformWithName:@"u_color" floatVector4:[fillColour vector4Value]]];
+//    [self addChild:self.effectNode];
     
     // Shape Node
     self.shapeNode = [[SKShapeNode alloc]init];
@@ -173,7 +174,9 @@
 }
 
 -(void)setColour:(UIColor*)colour{
-    [self.effectNode.shader uniformNamed:@"u_color"].floatVector4Value = [colour vector4Value];
+    printf("the method has not been implemented and has depricated function");
+    exit(1);
+//    [self.effectNode.shader uniformNamed:@"u_color"].floatVector4Value = [colour vector4Value];
 }
 
 #pragma mark - Splash
