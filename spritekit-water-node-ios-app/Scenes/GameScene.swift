@@ -49,6 +49,10 @@ class GameScene: SKScene {
         loadClouds()
         prepareFlyingBird()
         prepareWaterNode()
+        let shader = prepareWaterReflectionShader()
+        waterNode.effectNode.shader = shader
+        
+        waterDisturbanceAction()
     }
     
     private func prepareWaterNode(with joints: Int = 100) {
@@ -59,6 +63,20 @@ class GameScene: SKScene {
         waterNode.zPosition = 20
         
         self.addChild(waterNode)
+    }
+    
+    private func prepareWaterReflectionShader() -> SKShader {
+        let size = getSceneResolution()
+        let iterations: Float = 4
+        
+        let shader = SKShader(fileNamed: "CausticDroplet.fsh")
+        shader.uniforms = [
+            SKUniform(name: "size", vectorFloat3: size),
+            SKUniform(name: "iterations", float: iterations),
+            SKUniform(name: "u_color", vectorFloat4: waterColor.toVector4())
+        ]
+        return shader
+        
     }
     
     // MARK: - Touches
@@ -98,11 +116,11 @@ class GameScene: SKScene {
         }
         fixedUpdate(for: accumuilator)
         
-        lastUpdate(for: dt)
-        deltaTime = currentTime
-        
         // Iterate the updatables
         updatables.forEach{ $0.update(accumuilator) }
+        
+        lastUpdate(for: dt)
+        deltaTime = currentTime
     }
     
     func fixedUpdate(for dt: CFTimeInterval) {
@@ -140,6 +158,27 @@ class GameScene: SKScene {
     
     func lastUpdate(for dt: CFTimeInterval) {
         waterNode.render()
+    }
+    
+    private func waterDisturbanceAction() {
+        let width = self.frame.size.width
+        let duration = fixedTimeStep
+        
+        let perdiodicUpdate = SKAction.customAction(withDuration: duration) { [unowned self] (node, elapsedTime) in
+            
+            let xPoint = Float.random(min: 0, max: Float(width))
+            let disturbanceWidth = Float.random(min: 20, max: 300)
+            
+            let force = CGFloat.random(min: 0.3, max: 0.5)
+            
+            self.waterNode.disturbance(xPoint, force: -force, width: disturbanceWidth)
+        }
+        
+        let waitAction = SKAction.wait(forDuration: 0.5)
+        let actionSequence = SKAction.sequence([perdiodicUpdate, waitAction])
+        
+        let foreverAction = SKAction.repeatForever(actionSequence)
+        self.run(foreverAction, withKey:"periodicUpdate")
     }
     
 }
@@ -195,5 +234,12 @@ extension GameScene {
                 debugPrint(joint.position)
             })
         }
+    }
+    
+    fileprivate func getSceneResolution(multiplier: CGFloat = 1.0) -> float3 {
+        let width = Float(self.frame.size.width * multiplier)
+        let height = Float(self.frame.size.height * multiplier)
+        let size = float3([width, height, 0])
+        return size
     }
 }
