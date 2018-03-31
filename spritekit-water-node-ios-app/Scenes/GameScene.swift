@@ -109,7 +109,7 @@ class GameScene: SKScene {
         for box in boxes {
             box.velocity = CGPoint(x: box.velocity.x, y: box.velocity.y + CGFloat(gravity * dt))
             box.position = CGPoint(x: box.position.x + box.velocity.x * CGFloat(dt), y: box.position.y + box.velocity.y * CGFloat(dt))
-            
+                        
             if box.isAboveWater && box.position.y <= CGFloat(waterNode.surfaceHeight) {
                 box.isAboveWater = false
 //                waterNode.splash(at: box.position.x, force: -box.velocity.y * splashForceMultiplier, width: Float(splashWidth))
@@ -190,54 +190,5 @@ extension GameScene {
                 debugPrint(joint.position)
             })
         }
-    }
-}
-
-struct SerialSpriteUploader<Node: SKNode> {
-    
-    // MARK :- Properties
-    
-    private var scene: SKScene
-    
-    // MARK: - Initializers
-    
-    init(scene: SKScene) {
-        self.scene = scene
-    }
-    
-    // MARK: - Methods
-    
-    func upload(for key: String, with pattern: (_ key: String, _ index: Int)->String, inRange indices: ClosedRange<Int>) -> [Node] {
-        
-        var foundNodes = [Node]()
-        
-        for index in indices.lowerBound...indices.upperBound {
-            let childName = pattern(key, index)
-            guard let node = scene.childNode(withName: childName) as? Node else {
-                debugPrint(#function + " could not find child with the following name: ", childName)
-                continue
-            }
-            foundNodes.append(node)
-        }
-        
-        return foundNodes
-    }
-    
-    func upload(textureAtlas named: String, beginIndex: Int = 1, pattern: (_ name: String, _ index: Int) -> String) throws -> [SKTexture] {
-        let atlas = SKTextureAtlas(named: named)
-        var frames = [SKTexture]()
-        
-        let count = atlas.textureNames.count
-        if beginIndex > count {
-            throw NSError(domain: "Begin index is grather than the number of textures in a texture atlas named: \(named)", code: 1, userInfo: nil)
-        }
-        
-        for index in beginIndex...count {
-            let namePattern = pattern(named, index)
-            let texture = atlas.textureNamed(namePattern)
-            frames.append(texture)
-        }
-        
-        return frames
     }
 }
