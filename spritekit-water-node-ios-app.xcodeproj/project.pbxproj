@@ -30,6 +30,7 @@
 		A973C9A1206BBB7F00EA5F4A /* Sky-Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = A973C9A0206BBB7F00EA5F4A /* Sky-Actions.sks */; };
 		A973C9A3206BC01A00EA5F4A /* DropNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973C9A2206BC01A00EA5F4A /* DropNode.swift */; };
 		A973C9A8206BE64B00EA5F4A /* DynamicWaterNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A973C9A7206BE64B00EA5F4A /* DynamicWaterNode.m */; };
+		A9AACE07206F77FB002F5AAF /* FlyingBird.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AACE06206F77FB002F5AAF /* FlyingBird.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		A973C9A5206BE64A00EA5F4A /* spritekit-water-node-ios-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "spritekit-water-node-ios-app-Bridging-Header.h"; sourceTree = "<group>"; };
 		A973C9A6206BE64B00EA5F4A /* DynamicWaterNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicWaterNode.h; sourceTree = "<group>"; };
 		A973C9A7206BE64B00EA5F4A /* DynamicWaterNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicWaterNode.m; sourceTree = "<group>"; };
+		A9AACE06206F77FB002F5AAF /* FlyingBird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyingBird.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				A90DAE0E206E86F6007F15D7 /* CloudNode.swift */,
 				A973C9A2206BC01A00EA5F4A /* DropNode.swift */,
+				A9AACE06206F77FB002F5AAF /* FlyingBird.swift */,
 			);
 			path = "Node Components";
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9AACE07206F77FB002F5AAF /* FlyingBird.swift in Sources */,
 				A963664C20664AF3004D39BF /* Updatable.swift in Sources */,
 				A90DAE0F206E86F6007F15D7 /* CloudNode.swift in Sources */,
 				A973C9A3206BC01A00EA5F4A /* DropNode.swift in Sources */,

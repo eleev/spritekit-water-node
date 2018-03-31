@@ -10,7 +10,6 @@ import UIKit
 
 class CloudNode: SKSpriteNode, Updatable {
     
-    
     // MARK: - Conformance to Updatable protocol
     
     func update(_ dt: CFTimeInterval) {
