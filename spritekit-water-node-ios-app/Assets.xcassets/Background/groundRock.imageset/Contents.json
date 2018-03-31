@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "player1.png",
+      "filename" : "groundRock.png",
       "scale" : "1x"
     },
     {
