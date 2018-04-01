@@ -38,10 +38,18 @@ class GameScene: SKScene {
     private var updatables: [Updatable] = []
     fileprivate var spriteLoader: SerialSpriteUploader<CloudNode>?
     
+    var flockingManager: FlockingManager?
+    
+    
     // MARK: - Methods
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
+        
+        flockingManager = FlockingManager(with: 25, with: self)        
+        if let flockingRandomMovementActions = flockingManager?.chaoticActions() {
+            self.run(flockingRandomMovementActions)
+        }
         
         GameScene.viewportSize = view.bounds.size
         spriteLoader = SerialSpriteUploader(scene: self)
@@ -82,11 +90,26 @@ class GameScene: SKScene {
     // MARK: - Touches
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        flockingManager?.touchesBegan(touches, with: event)
+
         for touch in touches {
             let location = touch.location(in: self)
             appendDroppable(for: location)
         }
     }
+    
+//
+//    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        flockingManager?.touchesCancelled(touches, with: event)
+//    }
+//
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        flockingManager?.touchesEnded(touches, with: event)
+//    }
+//
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        flockingManager?.touchesMoved(touches, with: event)
+//    }
     
     private func appendDroppable(for location: CGPoint) {
         let box = DropNode(imageNamed: "Box")
@@ -99,6 +122,10 @@ class GameScene: SKScene {
     // MARK: - Update
     
     override func update(_ currentTime: TimeInterval) {
+        DispatchQueue.main.async {
+            self.flockingManager?.update(currentTime)
+        }
+        
         if !hasReferenceFrameTime {
             deltaTime = currentTime
             hasReferenceFrameTime = true
@@ -115,6 +142,7 @@ class GameScene: SKScene {
             accumuilator -= fixedTimeStep
         }
         fixedUpdate(for: accumuilator)
+        
         
         // Iterate the updatables
         updatables.forEach{ $0.update(accumuilator) }
