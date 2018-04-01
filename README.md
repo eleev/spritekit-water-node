@@ -2,7 +2,8 @@
 Custom `SpriteKit` node that allows to sumulate 2D water with respect to physics 🌊 The app demonstrates `Flocking` behaviour using `GameplayKit`, `key-frame animation` and custom `fragment shader chaining` (`GLSL`) 🤯. Feel free to play around and hopefully get some inspiration!
 
 # Caution
-Please note that you have to be very careful if you are going to use the repo in commercial projects - **do not use** graphics assets. The assets were taken from [Kenny](https://kenney.nl) and [icons8.com](https://icons8.com) and are free to use. However **I strongly recommend to double check it**.
+- Please note that you have to be very careful if you are going to use the repo in commercial projects - **do not use** graphics assets. The assets were taken from [Kenny](https://kenney.nl) and [icons8.com](https://icons8.com) and are free to use. However **I strongly recommend to double check it**.
+- The code is not perfect - there are some `magic` numbers such as `zPosition` of nodes and some pieces can be better organized. I documented some critical parts, but there are some missing explanations that will be added. 
 
 # Demo
 
