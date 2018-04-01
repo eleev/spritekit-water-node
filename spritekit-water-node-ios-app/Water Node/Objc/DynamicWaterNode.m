@@ -113,7 +113,7 @@
     self.effectNode.shader = [SKShader shaderWithFileNamed:@"Droplets.fsh"];
     // Shader is attached outside of the initializer
 //    self.effectNode.shader.uniforms = @[[SKUniform uniformWithName:@"u_color" floatVector4:[fillColour vector4Value]]];
-//    [self addChild:self.effectNode];
+    [self addChild:self.effectNode];
     
     // Shape Node
     self.shapeNode = [[SKShapeNode alloc]init];
