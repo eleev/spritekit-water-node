@@ -42,6 +42,15 @@ public extension Int {
 
 public extension Double {
     
+    var degreesToRadians: Double {
+        return self * .pi / 180
+    }
+    
+    var radiansToDegrees: Double {
+        return self * 180 / .pi
+    }
+    
+    
     /// Returns a random floating point number between 0.0 and 1.0, inclusive.
     public static var random: Double {
         return Double(arc4random()) / 0xFFFFFFFF
@@ -60,6 +69,14 @@ public extension Double {
 
 public extension Float {
     
+    var degreesToRadians: Float {
+        return self * .pi / 180
+    }
+    
+    var radiansToDegrees: Float {
+        return self * 180 / .pi
+    }
+    
     /// Returns a random floating point number between 0.0 and 1.0, inclusive.
     public static var random: Float {
         return Float(arc4random()) / 0xFFFFFFFF
@@ -72,11 +89,20 @@ public extension Float {
     public static func random(min: Float, max: Float) -> Float {
         return Float.random * (max - min) + min
     }
+    
 }
 
 // MARK: CGFloat Extension
 
 public extension CGFloat {
+    
+    var degreesToRadians: CGFloat {
+        return self * .pi / 180
+    }
+    
+    var radiansToDegrees: CGFloat {
+        return self * 180 / .pi
+    }
     
     /// Randomly returns either 1.0 or -1.0.
     public static var randomSign: CGFloat {
