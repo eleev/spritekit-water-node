@@ -9,4 +9,4 @@ Custom SpriteKit node that allows to sumulate 2D water with respect to physics ð
 [Astemir Eleev](https://github.com/jVirus)
 
 # Licence 
-The project is availabe under MIT licence.
+The project is availabe under [MIT licence](https://github.com/jVirus/spritekit-water-node-ios-app/blob/master/LICENSE).
