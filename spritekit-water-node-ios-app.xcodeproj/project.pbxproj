@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9084B892070C3720046FCF5 /* AgentNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9084B882070C3720046FCF5 /* AgentNode.swift */; };
 		A90DAE0D206E7E86007F15D7 /* DispatchQueue+DispatchOnce.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DAE0C206E7E86007F15D7 /* DispatchQueue+DispatchOnce.swift */; };
 		A90DAE0F206E86F6007F15D7 /* CloudNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DAE0E206E86F6007F15D7 /* CloudNode.swift */; };
+		A922F4062070CB0700593666 /* FlockingManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A922F4052070CB0700593666 /* FlockingManger.swift */; };
+		A922F40A2071091500593666 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = A922F4082071091500593666 /* circle.png */; };
+		A922F40B2071091500593666 /* Trail.sks in Resources */ = {isa = PBXBuildFile; fileRef = A922F4092071091500593666 /* Trail.sks */; };
+		A922F40E2071093500593666 /* Bubbles.sks in Resources */ = {isa = PBXBuildFile; fileRef = A922F40C2071093500593666 /* Bubbles.sks */; };
 		A9636611206645F1004D39BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636610206645F1004D39BF /* AppDelegate.swift */; };
 		A9636613206645F1004D39BF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A9636612206645F1004D39BF /* GameScene.sks */; };
 		A9636617206645F1004D39BF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9636616206645F1004D39BF /* GameScene.swift */; };
@@ -53,8 +58,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A9084B882070C3720046FCF5 /* AgentNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentNode.swift; sourceTree = "<group>"; };
 		A90DAE0C206E7E86007F15D7 /* DispatchQueue+DispatchOnce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+DispatchOnce.swift"; sourceTree = "<group>"; };
 		A90DAE0E206E86F6007F15D7 /* CloudNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudNode.swift; sourceTree = "<group>"; };
+		A922F4052070CB0700593666 /* FlockingManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlockingManger.swift; sourceTree = "<group>"; };
+		A922F4082071091500593666 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		A922F4092071091500593666 /* Trail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Trail.sks; sourceTree = "<group>"; };
+		A922F40C2071093500593666 /* Bubbles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Bubbles.sks; sourceTree = "<group>"; };
 		A963660D206645F1004D39BF /* spritekit-water-node-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spritekit-water-node-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9636610206645F1004D39BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9636612206645F1004D39BF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -120,6 +130,7 @@
 				A90DAE0E206E86F6007F15D7 /* CloudNode.swift */,
 				A973C9A2206BC01A00EA5F4A /* DropNode.swift */,
 				A9AACE06206F77FB002F5AAF /* FlyingBird.swift */,
+				A9084B882070C3720046FCF5 /* AgentNode.swift */,
 			);
 			path = "Node Components";
 			sourceTree = "<group>";
@@ -127,6 +138,7 @@
 		A90DAE11206E99F0007F15D7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A922F4072071091500593666 /* Particles */,
 				A90DAE15206E9A3E007F15D7 /* Actions */,
 				A9636616206645F1004D39BF /* GameScene.swift */,
 				A9636612206645F1004D39BF /* GameScene.sks */,
@@ -157,6 +169,24 @@
 				A973C9A0206BBB7F00EA5F4A /* Sky-Actions.sks */,
 			);
 			path = Actions;
+			sourceTree = "<group>";
+		};
+		A922F4042070CAEE00593666 /* Focking  */ = {
+			isa = PBXGroup;
+			children = (
+				A922F4052070CB0700593666 /* FlockingManger.swift */,
+			);
+			path = "Focking ";
+			sourceTree = "<group>";
+		};
+		A922F4072071091500593666 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				A922F4082071091500593666 /* circle.png */,
+				A922F4092071091500593666 /* Trail.sks */,
+				A922F40C2071093500593666 /* Bubbles.sks */,
+			);
+			path = Particles;
 			sourceTree = "<group>";
 		};
 		A9636604206645F1004D39BF = {
@@ -193,6 +223,7 @@
 				A963665720678B37004D39BF /* Shaders */,
 				A9636654206787D6004D39BF /* Extensions */,
 				A9636646206646B2004D39BF /* Water Node */,
+				A922F4042070CAEE00593666 /* Focking  */,
 				A9DDB921206FEA3A00D513FE /* Utils */,
 			);
 			path = "spritekit-water-node-ios-app";
@@ -385,8 +416,11 @@
 				A973C9A1206BBB7F00EA5F4A /* Sky-Actions.sks in Resources */,
 				A963661C206645F1004D39BF /* Main.storyboard in Resources */,
 				A9636613206645F1004D39BF /* GameScene.sks in Resources */,
+				A922F40A2071091500593666 /* circle.png in Resources */,
 				A963665920678B50004D39BF /* Droplets.fsh in Resources */,
 				A963661E206645F1004D39BF /* Assets.xcassets in Resources */,
+				A922F40B2071091500593666 /* Trail.sks in Resources */,
+				A922F40E2071093500593666 /* Bubbles.sks in Resources */,
 				A9636621206645F1004D39BF /* LaunchScreen.storyboard in Resources */,
 				A963664520664613004D39BF /* .gitignore in Resources */,
 				A9DDB925207000B900D513FE /* CausticDroplet.fsh in Resources */,
@@ -414,6 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9084B892070C3720046FCF5 /* AgentNode.swift in Sources */,
 				A9AACE07206F77FB002F5AAF /* FlyingBird.swift in Sources */,
 				A963664C20664AF3004D39BF /* Updatable.swift in Sources */,
 				A90DAE0F206E86F6007F15D7 /* CloudNode.swift in Sources */,
@@ -421,6 +456,7 @@
 				A973C9A8206BE64B00EA5F4A /* DynamicWaterNode.m in Sources */,
 				A9636656206787F0004D39BF /* NumTypes+Random.swift in Sources */,
 				A9636617206645F1004D39BF /* GameScene.swift in Sources */,
+				A922F4062070CB0700593666 /* FlockingManger.swift in Sources */,
 				A9636651206665D8004D39BF /* Droplet.swift in Sources */,
 				A9DDB923206FEA5300D513FE /* SerialSpriteUploader.swift in Sources */,
 				A9636619206645F1004D39BF /* GameViewController.swift in Sources */,
