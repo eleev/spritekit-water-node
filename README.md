@@ -1,3 +1,7 @@
+[![Platform](https://img.shields.io/badge/platform-iOS-yellow.svg)]()
+[![Language](https://img.shields.io/badge/language-swift-orange.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)]()
+
 # spritekit-water-node-ios-app
 Custom `SpriteKit` node that allows to simulate 2D water with respect to physics 🌊 The app demonstrates `Flocking` behaviour using `GameplayKit`, `key-frame animation` and custom `fragment shader chaining` (`GLSL`) 🤯. Feel free to play around and hopefully get some inspiration!
 
