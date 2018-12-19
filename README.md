@@ -4,7 +4,9 @@
 [![Language](https://img.shields.io/badge/language-swift-orange.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)]()
 
-**Last Update: 12/September/2018.**
+**Last Update: 19/December/2018.**
+
+### If you like the project, please give it a star ⭐ It will show the creator your appreciation and help others to discover the repo.
 
 # ✍️ About
 Custom `SpriteKit` node that allows to simulate 2D water with respect to physics 🌊 The app demonstrates `Flocking` behaviour using `GameplayKit`, `key-frame animation` and custom `fragment shader chaining` (`GLSL`) 🤯. Feel free to play around and hopefully get some inspiration!
