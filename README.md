@@ -4,7 +4,7 @@
 [![Language](https://img.shields.io/badge/language-swift-orange.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)]()
 
-**Last Update: 25/December/2018.**
+**Last Update: 22/February/2019.**
 
 ### If you like the project, please give it a star ⭐ It will show the creator your appreciation and help others to discover the repo.
 
@@ -18,7 +18,7 @@ Custom `SpriteKit` node that allows to simulate 2D water with respect to physics
 # 📺 Demo
 Please wait while the `.gif` file is loading...
 
-<img src="https://user-images.githubusercontent.com/5098753/38174590-3115fbd4-35d8-11e8-8d52-4255e31e44dc.gif" width="700">
+<img src="https://user-images.githubusercontent.com/5098753/38174590-3115fbd4-35d8-11e8-8d52-4255e31e44dc.gif" width="100%">
 
 # 👨‍💻 Author 
 [Astemir Eleev](https://github.com/jVirus)
