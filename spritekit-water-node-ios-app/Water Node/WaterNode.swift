@@ -121,7 +121,7 @@ class WaterNode: SKNode, Splashable {
         var closestoJoint: WaterJoint!
         
         for joint in joints {
-            let distance = fabs(joint.position.x - xLocation)
+            let distance = abs(joint.position.x - xLocation)
             
             if distance < shortestDistance {
                 shortestDistance = distance
@@ -132,7 +132,7 @@ class WaterNode: SKNode, Splashable {
         closestoJoint.velocity = -force
         
         for joint in joints {
-            let distance = fabs(joint.position.x - closestoJoint.position.x)
+            let distance = abs(joint.position.x - closestoJoint.position.x)
 
             if distance < cgwidth {
                 joint.velocity = distance / cgwidth * -force
@@ -322,7 +322,7 @@ class WaterNode: SKNode, Splashable {
     func remove(droplet: Droplet) {
         droplet.removeFromParent()
         
-        if let index = droplets.index(of: droplet) {
+        if let index = droplets.firstIndex(of: droplet) {
             droplets.remove(at: index)
         }
         dropletsCache.append(droplet)

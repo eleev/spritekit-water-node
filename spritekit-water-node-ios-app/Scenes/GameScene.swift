@@ -173,7 +173,7 @@ class GameScene: SKScene {
         }
         
         for box in boxesToRemove {
-            guard let index = boxes.index(of: box) else {
+            guard let index = boxes.firstIndex(of: box) else {
                 continue
             }
             debugPrint(#function + " remove box that is ourside of the viewport : ", boxes[index])

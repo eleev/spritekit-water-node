@@ -11,7 +11,7 @@ import CoreGraphics
 
 // MARK: Int Extension
 
-public extension Int {
+extension Int {
     
     /// Returns a random Int point number between 0 and Int.max.
     public static var random: Int {
@@ -40,7 +40,7 @@ public extension Int {
 
 // MARK: Double Extension
 
-public extension Double {
+extension Double {
     
     var degreesToRadians: Double {
         return self * .pi / 180
@@ -67,7 +67,7 @@ public extension Double {
 
 // MARK: Float Extension
 
-public extension Float {
+extension Float {
     
     var degreesToRadians: Float {
         return self * .pi / 180
@@ -79,7 +79,7 @@ public extension Float {
     
     /// Returns a random floating point number between 0.0 and 1.0, inclusive.
     public static var random: Float {
-        return Float(arc4random()) / 0xFFFFFFFF
+        return Float(arc4random()) / 4294967296 /* 0xFFFFFFFF */
     }
     
     /// Random float between 0 and n-1.
@@ -94,7 +94,7 @@ public extension Float {
 
 // MARK: CGFloat Extension
 
-public extension CGFloat {
+extension CGFloat {
     
     var degreesToRadians: CGFloat {
         return self * .pi / 180
