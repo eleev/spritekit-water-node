@@ -1,10 +1,10 @@
 # spritekit-water-node [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 [![Platform](https://img.shields.io/badge/platform-iOS-yellow.svg)]()
-[![Language](https://img.shields.io/badge/language-Swift_5.0-orange.svg)]()
+[![Language](https://img.shields.io/badge/language-Swift_5.4-orange.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)]()
 
-**Last Update: 17/April/2019.**
+**Last Update: 04/July/2021.**
 
 ### If you like the project, please give it a star ⭐ It will show the creator your appreciation and help others to discover the repo.
 

@@ -264,10 +264,10 @@ extension GameScene {
         }
     }
     
-    fileprivate func getSceneResolution(multiplier: CGFloat = 1.0) -> float3 {
+    fileprivate func getSceneResolution(multiplier: CGFloat = 1.0) -> SIMD3<Float> {
         let width = Float(self.frame.size.width * multiplier)
         let height = Float(self.frame.size.height * multiplier)
-        let size = float3([width, height, 0])
+        let size = SIMD3<Float>([width, height, 0])
         return size
     }
 }
